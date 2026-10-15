@@ -11,7 +11,7 @@ export function HomeFeatures() {
           {pillars.map((pillar, index) => {
             const Icon = icons[index] ?? UserRound
             return (
-              <li key={pillar.title} className="rounded-3xl bg-[#f4f8fb] p-7 transition-transform duration-300 hover:-translate-y-1 motion-reduce:transition-none">
+              <li key={pillar.title} className="bob rounded-3xl bg-[#f4f8fb] p-7" style={{ animationDelay: `${index * 0.9}s` }}>
                 <span className="grid size-12 place-items-center rounded-full bg-white text-primary ring-1 ring-black/5">
                   <Icon className="size-5" aria-hidden="true" />
                 </span>

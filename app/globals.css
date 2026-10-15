@@ -294,3 +294,25 @@
 .rail::-webkit-scrollbar {
   display: none;
 }
+
+@keyframes drift {
+  0%, 100% { transform: translateX(-14px); }
+  50% { transform: translateX(18px); }
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+.drift {
+  animation: drift 16s ease-in-out infinite;
+}
+
+.bob {
+  animation: bob 7s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drift, .bob { animation: none; }
+}

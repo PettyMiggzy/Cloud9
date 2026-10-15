@@ -14,8 +14,8 @@ export function HomeFees() {
           {fees.medicareNote} Most private plans are accepted, and the clinic verifies benefits before you come in.
         </p>
         <div className="mt-10 grid gap-4 md:grid-cols-2">
-          {tiles.map((tile) => (
-            <div key={tile.label} className="rounded-3xl bg-white p-8 ring-1 ring-black/5">
+          {tiles.map((tile, index) => (
+            <div key={tile.label} className="bob rounded-3xl bg-white p-8 ring-1 ring-black/5" style={{ animationDelay: `${index * 1.2}s` }}>
               <p className="text-6xl font-semibold tracking-tight text-[#14324f] sm:text-7xl">{tile.amount}</p>
               <p className="mt-3 text-lg text-[#334155]">{tile.label}</p>
             </div>

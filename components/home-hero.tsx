@@ -3,7 +3,9 @@
 import Image from "next/image"
 import Link from "next/link"
 import { motion, useReducedMotion } from "motion/react"
+import { CloudEdge } from "@/components/cloud-edge"
 import { OpenNow } from "@/components/open-now"
+import { Puff } from "@/components/sky"
 import { Button } from "@/components/ui/button"
 import { clinic } from "@/lib/content"
 
@@ -17,7 +19,7 @@ export function HomeHero() {
   return (
     <section className="relative isolate overflow-hidden bg-[#dcebf8]">
       <Image src="/images/sky.jpg" alt="" fill priority sizes="100vw" className="-z-10 object-cover" />
-      <div className="mx-auto grid max-w-[1200px] items-center gap-4 px-5 pt-6 pb-28 sm:px-8 md:pt-16 md:pb-40 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
+      <div className="relative z-10 mx-auto grid max-w-[1200px] items-center gap-4 px-5 pt-6 pb-28 sm:px-8 md:pt-16 md:pb-40 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
         <motion.div
           initial={reduce ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -68,16 +70,11 @@ export function HomeHero() {
         </div>
       </div>
 
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 1440 120"
-        preserveAspectRatio="none"
-        className="absolute inset-x-0 bottom-0 h-16 w-full text-white md:h-28"
-      >
-        <path fill="#A9E4F4" d="M0 70 C240 10 480 10 720 55 C960 100 1200 100 1440 40 L1440 120 L0 120Z" />
-        <path fill="#2E96CC" d="M0 88 C260 40 500 40 740 78 C980 116 1220 112 1440 70 L1440 120 L0 120Z" />
-        <path fill="currentColor" d="M0 104 C280 72 520 74 760 100 C1000 126 1220 122 1440 98 L1440 120 L0 120Z" />
-      </svg>
+      <Puff n={4} priority depth={0.1} drift={22} className="top-[1%] right-[-12%] w-52 md:top-[3%] md:right-[22%] md:w-[26rem]" />
+      <Puff n={3} depth={0.35} drift={14} delay={4} className="top-[44%] right-[2%] w-24 md:top-[58%] md:right-[3%] md:w-44" />
+      <Puff n={1} depth={0.25} drift={18} delay={9} className="bottom-[16%] left-[42%] hidden w-44 md:block" />
+      <CloudEdge className="text-[#eaf4fc]" />
+      <CloudEdge className="translate-y-2 text-white" />
     </section>
   )
 }
