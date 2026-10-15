@@ -11,10 +11,10 @@ const stats = [
 
 export function HomeAbout() {
   return (
-    <section className="bg-[#E8F4F8] py-16 md:py-24">
+    <section className="bg-[#E8F4F8] py-24 md:py-32">
       <div className="mx-auto grid max-w-[1200px] items-center gap-10 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
         <Reveal>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-white">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5">
             <Image
               src="/images/clinic/services.jpg"
               alt="Dr. Sakshi Nandal treating a patient at Cloud 9 Physical Therapy"

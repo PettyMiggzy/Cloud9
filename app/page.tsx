@@ -17,7 +17,7 @@ export default function HomePage() {
       <HomeAbout />
       <HomeServices />
       <HomeTestimonials />
-      <section className="border-y border-border bg-white py-16 md:py-20">
+      <section className="border-y border-border bg-white py-24 md:py-32">
         <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
           <Reveal>
             <p className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">Community</p>
@@ -28,7 +28,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section id="faq" className="scroll-mt-28 bg-[#FAFBFC] py-16 md:py-24">
+      <section id="faq" className="scroll-mt-28 bg-[#FAFBFC] py-24 md:py-32">
         <div className="mx-auto max-w-3xl px-5 sm:px-8">
           <Reveal>
             <p className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">FAQ</p>

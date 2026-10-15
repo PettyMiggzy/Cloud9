@@ -10,7 +10,7 @@ export function NextStep({
   body?: string
 }) {
   return (
-    <section className="mt-16 rounded-xl bg-[#0F4C5C] px-6 py-10 text-white sm:px-10">
+    <section className="mt-16 rounded-2xl bg-[#0F4C5C] px-6 py-10 text-white ring-1 ring-black/5 sm:px-10">
       <h2 className="font-heading text-3xl text-balance text-white sm:text-4xl">{title}</h2>
       <p className="mt-3 max-w-xl leading-relaxed text-white/80">{body}</p>
       <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">

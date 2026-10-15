@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function BookPage() {
   return (
-    <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 lg:grid-cols-[0.75fr_1.25fr]">
+    <div className="mx-auto grid max-w-6xl gap-8 px-5 py-24 sm:px-8 md:py-32 lg:grid-cols-[0.75fr_1.25fr]">
       <div>
         <p className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">Request</p>
         <h1 className="mt-3 font-heading text-5xl leading-tight">Ask for an hour.</h1>

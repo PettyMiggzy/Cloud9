@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function InsurancePage() {
   return (
-    <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:py-16">
+    <div className="mx-auto grid max-w-6xl gap-8 px-5 py-24 sm:px-8 md:py-32 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
       <div>
         <PageHeader eyebrow="Benefits" title="Medicare, a private plan, or self-pay.">
           <p>

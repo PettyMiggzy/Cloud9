@@ -25,7 +25,7 @@ const anchors = [
 
 export default function FirstVisitPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-12 lg:py-16">
+    <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8 md:py-32">
       <PageHeader eyebrow="First visit" title="The hour, and the ten minutes before it.">
         <p>
           The first appointment is a 60-minute, one-to-one evaluation. Arrive about ten minutes early so paperwork does not take the treatment time. What follows is how that visit works at Cloud 9. It is not a treatment plan.

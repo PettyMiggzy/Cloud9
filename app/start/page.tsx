@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function StartPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12 lg:py-16">
+    <div className="mx-auto max-w-3xl px-5 py-24 sm:px-8 md:py-32">
       <PageHeader eyebrow="New patients" title="Where should you start?">
         <p>
           Two questions match your words to one service this clinic already offers. This is a starting point, not medical advice, and not a diagnosis. The evaluation decides the plan.

@@ -13,14 +13,9 @@ export function HomeHero() {
         fill
         priority
         sizes="100vw"
-        className="kenburns object-cover object-center"
+        className="object-cover object-center"
       />
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.28)_0%,rgba(255,255,255,0.08)_46%,#fafbfc_100%)]" />
-      <div className="sky-puff pointer-events-none absolute top-28 -left-10 h-24 w-72 rounded-full bg-white/80 blur-2xl" />
-      <div className="sky-puff sky-puff-slow pointer-events-none absolute top-20 right-[6%] h-20 w-64 rounded-full bg-white/75 blur-2xl" />
-      <div className="sky-puff pointer-events-none absolute bottom-24 left-[18%] h-16 w-56 rounded-full bg-white/60 blur-3xl" />
-
-      <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-[1200px] items-center gap-8 px-5 pt-28 pb-28 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-x-14 lg:gap-y-2 lg:pt-32 lg:pb-20">
+      <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-[1200px] items-center gap-8 px-5 pt-28 pb-28 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-x-14 lg:gap-y-6 lg:pt-32 lg:pb-24">
         <CloudMark className="cloud-float-lg h-28 w-40 lg:col-start-2 lg:row-start-1 lg:h-40 lg:w-56 lg:justify-self-start lg:self-end" />
         <div className="lg:col-start-1 lg:row-span-2 lg:row-start-1">
           <p className="text-xs font-semibold tracking-[0.18em] text-[#174E86] uppercase">Indianapolis physical therapy</p>
@@ -49,7 +44,7 @@ export function HomeHero() {
         </div>
 
         <div className="lg:col-start-2 lg:row-start-2 lg:-mt-6">
-          <div className="overflow-hidden rounded-[1.75rem] bg-white shadow-[0_28px_70px_-36px_rgba(23,78,134,0.55)] ring-1 ring-white">
+          <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5">
             <Image
               src="/images/clinic/gym.jpg"
               alt="The Cloud 9 gym, with parallel bars, exercise balls, and the values painted on the wall"

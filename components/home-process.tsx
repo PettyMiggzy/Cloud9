@@ -3,13 +3,13 @@ import { processSteps } from "@/lib/content"
 
 export function HomeProcess() {
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-white py-24 md:py-32">
       <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
         <Reveal>
           <p className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">How it works</p>
           <h2 className="mt-3 text-[1.875rem] leading-tight sm:text-[2.5rem]">From the first hour forward.</h2>
         </Reveal>
-        <ol className="mt-12 grid gap-10 md:grid-cols-3 md:gap-6">
+        <ol className="mt-12 grid gap-8 md:grid-cols-3">
           {processSteps.map((step, index) => (
             <li key={step.title} className="relative">
               <Reveal>

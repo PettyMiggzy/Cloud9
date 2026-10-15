@@ -243,12 +243,6 @@
   50% { transform: translateY(-22px); }
 }
 
-@keyframes sky-drift {
-  0%,
-  100% { transform: translateX(0); }
-  50% { transform: translateX(36px); }
-}
-
 .cloud-float {
   animation: cloud-float 3.2s ease-in-out infinite;
   will-change: transform;
@@ -259,15 +253,6 @@
   animation-duration: 4.2s;
 }
 
-.sky-puff {
-  animation: sky-drift 14s ease-in-out infinite;
-}
-
-.sky-puff-slow {
-  animation-duration: 18s;
-  animation-direction: alternate;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .page-enter,
   .kenburns,
@@ -275,8 +260,7 @@
   .marquee-track,
   .review-bar,
   .lift-in,
-  .cloud-float,
-  .sky-puff {
+  .cloud-float {
     animation: none;
   }
   .logo-motion {

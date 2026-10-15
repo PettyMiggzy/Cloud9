@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ReferPage() {
   return (
-    <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:py-16">
+    <div className="mx-auto grid max-w-6xl gap-8 px-5 py-24 sm:px-8 md:py-32 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
       <div>
         <PageHeader eyebrow="For a physician’s office" title="Refer a patient to Suite G.">
           <p>

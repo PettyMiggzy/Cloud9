@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function GalleryPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-12">
+    <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8 md:py-32">
       <p className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">Thompson Road</p>
       <h1 className="mt-3 max-w-3xl font-heading text-5xl leading-tight">The room, before you are in it.</h1>
       <p className="mt-4 max-w-2xl text-lg text-muted-foreground">

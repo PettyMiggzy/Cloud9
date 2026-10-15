@@ -18,7 +18,7 @@ const featured = [
 
 export function HomeServices() {
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-white py-24 md:py-32">
       <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
         <Reveal>
           <div className="flex items-end justify-between gap-6">
@@ -28,16 +28,16 @@ export function HomeServices() {
             </div>
             <Link href="/services" className="hidden items-center gap-1 text-sm font-semibold text-primary sm:inline-flex">
               View all
-              <ArrowRight className="size-4" aria-hidden="true" />
+              <ArrowRight className="size-5" aria-hidden="true" />
             </Link>
           </div>
         </Reveal>
-        <ul className="mt-10 grid gap-6 md:grid-cols-3">
+        <ul className="mt-12 grid gap-8 md:grid-cols-3">
           {featured.map((service) => (
             <li key={service.slug}>
               <Reveal>
                 <Link href={`/services/${service.slug}`} className="group block h-full">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-[#E8F4F8]">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-[#E8F4F8] ring-1 ring-black/5">
                     <Image
                       src={service.image}
                       alt={service.imageAlt}
@@ -50,7 +50,7 @@ export function HomeServices() {
                   <p className="mt-2 text-sm leading-relaxed text-[#475569]">{service.short}</p>
                   <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primary">
                     Learn more
-                    <ArrowRight className="size-4 transition duration-200 group-hover:translate-x-0.5" aria-hidden="true" />
+                    <ArrowRight className="size-5" aria-hidden="true" />
                   </span>
                 </Link>
               </Reveal>
@@ -62,7 +62,7 @@ export function HomeServices() {
         </p>
         <Link href="/services" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary sm:hidden">
           View all services
-          <ArrowRight className="size-4" aria-hidden="true" />
+          <ArrowRight className="size-5" aria-hidden="true" />
         </Link>
       </div>
     </section>

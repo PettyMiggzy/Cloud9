@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function SouthsidePage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-12 lg:py-16">
+    <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8 md:py-32">
       <PageHeader eyebrow="Indianapolis" title="Physical therapy on the south side of Indianapolis.">
         <p>
           Cloud 9 Physical Therapy sees people at {clinic.address}. Suite G is the clinic, on Thompson Road. Weekday hours run 7:00 am to 7:00 pm. Saturday is open 8:00 am to 2:00 pm. Sunday the clinic is closed.

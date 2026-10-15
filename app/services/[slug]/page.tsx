@@ -26,7 +26,7 @@ export default async function ServicePage({ params }: Props) {
   const others = services.filter((item) => item.slug !== service.slug).slice(0, 3)
 
   return (
-    <article className="mx-auto max-w-6xl px-4 py-12">
+    <article className="mx-auto max-w-6xl px-5 py-24 sm:px-8 md:py-32">
       <p className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">
         <Link href="/services" className="hover:underline">
           Care

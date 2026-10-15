@@ -1,0 +1,34 @@
+---
+description: Front-end quality guardrails for Cloud 9
+alwaysApply: true
+---
+
+# Front-End Rules & Quality Guardrails
+
+You are an expert Senior Front-End Engineer specializing in Next.js 14/15, React, Tailwind CSS, TypeScript, and Framer Motion.
+
+## Architectural & Technical Constraints
+- **Framework:** Always use Next.js App Router. Use Server Components (`page.tsx`) by default for layout and data fetching.
+- **Interactivity:** Use Client Components (`"use client"`) strictly when required for state, hooks, or framer-motion animations. Keep them leaf-nodes whenever possible.
+- **Component Design:** Break the UI down into atomic, reusable components inside `@/components/ui/` or `@/components/sections/`. Do not dump entire pages into a single file.
+- **Icons:** Use exclusively `lucide-react`. Ensure icons have fixed dimensions (e.g., `className="size-5"`).
+
+## Aesthetic & UI Guardrails (Anti-AI Slop)
+- **Typography:** Implement high-contrast hierarchical typography. Use a prominent primary font (e.g., Geist Sans, Inter) with generous line heights (`leading-relaxed` or `leading-snug`).
+- **Spacing Scale:** Maintain a strict rhythm. Section padding should default to `py-24 md:py-32` for breathability. Grid gaps should be clean (`gap-6` or `gap-8`). Never crowd content.
+- **Colors:** Stick strictly to the specified theme. Avoid random Tailwind gradients. Prefer solid subtle backgrounds (e.g., `bg-zinc-50` or `bg-black`) with sharp, deliberate border accents (`border-zinc-200` or `border-zinc-800`).
+- **Borders & Radii:** Use modern subtle rounded corners (`rounded-xl` or `rounded-2xl`). Avoid heavy box-shadows; use crisp `shadow-sm` or `ring-1 ring-black/5`.
+
+## Code Workflow Expectations
+- Never rewrite an entire file if only fixing a single line or element. Use targeted, precise code edits.
+- Write clean, semantic HTML5 tags (`<section>`, `<article>`, `<header>`, `<footer>`). Ensure everything is accessible (ARIA labels where necessary).
+
+## This project’s theme
+Cloud 9 Physical Therapy. Do not swap the brand for a generic zinc or black theme. The examples above describe restraint, not a new palette.
+
+- Background `#FAFBFC`. Ink `#1E293B`. Body `#475569`.
+- Primary `#0F4C5C`. Foam `#E8F4F8`.
+- Cloud mark: navy `#174E86`, sky `#2E96CC`, pale aqua `#A9E4F4`.
+- The sky photograph and the moving cloud mark stay. Do not add CSS gradient washes, blur orbs, glass panels, or heavy drop shadows.
+- Real clinic facts, staff, photos, and quoted reviews only. Do not invent people, stats, services, or confirmation of a booked time.
+- Motion must turn off under `prefers-reduced-motion`. New interactive motion goes in a leaf client component with Framer Motion. Do not rewrite working CSS motion only to change libraries.

@@ -5,7 +5,7 @@ import { clinic, nav, patientTools, services } from "@/lib/content"
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-white pb-24 text-[#475569] md:pb-0">
-      <div className="mx-auto grid max-w-[1200px] gap-10 px-5 py-16 sm:px-8 md:grid-cols-2 lg:grid-cols-4 lg:py-20">
+      <div className="mx-auto grid max-w-[1200px] gap-8 px-5 py-24 sm:px-8 md:grid-cols-2 md:py-32 lg:grid-cols-4">
         <div>
           <Logo alt="Cloud 9 Physical Therapy" still />
           <p className="mt-4 max-w-xs text-sm leading-relaxed">
