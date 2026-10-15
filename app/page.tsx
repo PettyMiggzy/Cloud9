@@ -11,8 +11,8 @@ import { clinic, faqs, patientTools, team, values } from "@/lib/content"
 export default function HomePage() {
   return (
     <>
-      <section className="grid lg:min-h-[calc(100svh-7.25rem)] lg:grid-cols-[minmax(0,42rem)_1fr]">
-        <div className="flex flex-col justify-center px-5 py-14 sm:px-10 lg:px-14">
+      <section className="mx-auto grid max-w-6xl items-center gap-8 px-5 py-12 sm:px-8 lg:min-h-[calc(100svh-8.75rem)] lg:grid-cols-[minmax(0,34rem)_1fr] lg:gap-12 lg:py-8">
+        <div className="flex flex-col justify-center">
           <p className="text-sm font-medium text-primary">5370 E. Thompson Rd, Suite G</p>
           <h1 className="mt-4 max-w-xl font-heading text-5xl leading-[1.02] font-semibold tracking-tight text-balance sm:text-6xl">
             The hour belongs to you.
@@ -43,19 +43,20 @@ export default function HomePage() {
             </div>
           </dl>
         </div>
-        <div className="relative min-h-[22rem] sm:min-h-[28rem] lg:min-h-0">
+        <div className="relative min-h-[22rem] overflow-hidden rounded-[2rem] shadow-[0_28px_70px_-28px_rgba(23,78,134,0.55)] ring-1 ring-white/70 sm:min-h-[28rem] lg:min-h-[34rem]">
           <Image
             src="/images/clinic/gym.jpg"
             alt="The Cloud 9 gym, with exercise balls, parallel bars, and the values painted on the wall"
             fill
             priority
-            sizes="(min-width: 1024px) 58vw, 100vw"
+            sizes="(min-width: 1024px) 48vw, 100vw"
             className="object-cover object-[68%_42%]"
           />
         </div>
       </section>
 
-      <section className="grid border-y border-border md:grid-cols-3">
+      <div className="relative rounded-t-[2.5rem] bg-[#f7fbfe] shadow-[0_-28px_80px_-40px_rgba(23,78,134,0.35)]">
+      <section className="grid border-b border-border md:grid-cols-3">
         {[
           ["No referral", "Indiana is a direct-access state. You can start without a prescription."],
           ["One person, the whole hour", "Manual therapy, dry needling, and exercise happen with the clinician who stays."],
@@ -181,6 +182,7 @@ export default function HomePage() {
       </section>
       <div className="mx-auto max-w-6xl px-5 pb-16 sm:px-8">
         <NextStep />
+      </div>
       </div>
     </>
   )

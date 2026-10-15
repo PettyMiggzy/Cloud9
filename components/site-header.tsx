@@ -57,8 +57,13 @@ export function SiteHeader() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-white/95 backdrop-blur-md">
-      <div className={cn("overflow-hidden bg-foam text-foreground transition-all duration-300", scrolled ? "max-h-0" : "max-h-12")}>
+    <header
+      className={cn(
+        "sticky top-0 z-40 border-b backdrop-blur-xl transition-colors duration-300",
+        scrolled ? "border-border bg-[#f7fbfe]/92" : "border-white/40 bg-white/30"
+      )}
+    >
+      <div className={cn("overflow-hidden text-foreground transition-all duration-300", scrolled ? "max-h-0" : "max-h-12 bg-[#d5eef8]/75")}>
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2 text-xs sm:text-sm">
           <p className="truncate">{clinic.address}</p>
           <OpenNow className="shrink-0" />
@@ -68,8 +73,11 @@ export function SiteHeader() {
         </div>
       </div>
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-        <Link href="/" aria-label="Cloud 9 Physical Therapy" className="flex items-center">
-          <Logo markClassName={cn("transition-all duration-300", scrolled ? "h-9 w-10" : "h-11 w-12")} />
+        <Link href="/" aria-label="Cloud 9 Physical Therapy" className="flex shrink-0 items-center">
+          <Logo
+            priority
+            className={cn("h-11 w-auto transition-all duration-300 sm:h-14", scrolled && "h-10 sm:h-11")}
+          />
         </Link>
         <NavLinks className="hidden items-center gap-5 lg:flex xl:gap-7" />
         <div className="flex items-center gap-3">

@@ -4,16 +4,16 @@ import { clinic, nav, patientTools } from "@/lib/content"
 
 export function SiteFooter() {
   return (
-    <footer className="bg-deep pb-24 text-white md:pb-0">
+    <footer className="border-t border-[#cfe6f4] bg-[#e7f4fb] pb-24 text-foreground md:pb-0">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2 lg:col-span-1">
-          <Logo tone="light" markClassName="h-10 w-11" />
-          <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/75">
+          <Logo alt="Cloud 9 Physical Therapy" className="h-14 w-auto sm:h-16" />
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
             One-to-one physical therapy on Thompson Road. The hour is yours, and so is the clinician.
           </p>
         </div>
         <div>
-          <p className="text-xs font-semibold tracking-[0.16em] text-white/60 uppercase">Find</p>
+          <p className="text-xs font-semibold tracking-[0.16em] text-primary uppercase">Find</p>
           <ul className="mt-3 space-y-2 text-sm">
             {nav.map((item) => (
               <li key={item.href}>
@@ -28,7 +28,7 @@ export function SiteFooter() {
               </Link>
             </li>
           </ul>
-          <p className="mt-6 text-xs font-semibold tracking-[0.16em] text-white/60 uppercase">For patients</p>
+          <p className="mt-6 text-xs font-semibold tracking-[0.16em] text-primary uppercase">For patients</p>
           <ul className="mt-3 space-y-2 text-sm">
             {patientTools.map((tool) => (
               <li key={tool.href}>
@@ -40,8 +40,8 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <p className="text-xs font-semibold tracking-[0.16em] text-white/60 uppercase">Clinic</p>
-          <ul className="mt-3 space-y-2 text-sm text-white/85">
+          <p className="text-xs font-semibold tracking-[0.16em] text-primary uppercase">Clinic</p>
+          <ul className="mt-3 space-y-2 text-sm">
             <li>
               <a href={clinic.phoneHref} className="hover:underline">
                 {clinic.phone}
@@ -61,8 +61,8 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <p className="text-xs font-semibold tracking-[0.16em] text-white/60 uppercase">Hours</p>
-          <ul className="mt-3 space-y-2 text-sm text-white/85">
+          <p className="text-xs font-semibold tracking-[0.16em] text-primary uppercase">Hours</p>
+          <ul className="mt-3 space-y-2 text-sm">
             {clinic.hours.map((row) => (
               <li key={row.days} className="flex justify-between gap-4">
                 <span>{row.days}</span>
@@ -72,8 +72,8 @@ export function SiteFooter() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-white/15">
-        <p className="mx-auto max-w-6xl px-4 py-4 text-xs text-white/60">
+      <div className="border-t border-[#cfe6f4]">
+        <p className="mx-auto max-w-6xl px-4 py-4 text-xs text-muted-foreground">
           © {new Date().getFullYear()} Cloud 9 Physical Therapy. A redesigned visit to the clinic on Thompson Road.
         </p>
       </div>

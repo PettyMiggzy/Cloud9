@@ -73,6 +73,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body className={`${outfit.variable} min-h-screen antialiased`}>
+        <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10">
+          <img src="/images/sky.jpg" alt="" className="h-full w-full object-cover object-top" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.12)_0%,rgba(226,242,250,0.48)_32%,rgba(247,251,254,0.92)_64%,#f7fbfe_100%)]" />
+        </div>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <a
           href="#main"

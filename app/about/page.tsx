@@ -34,9 +34,9 @@ export default function AboutPage() {
         </div>
         <div>
           <h2 className="font-heading text-3xl">Painted where patients can see it.</h2>
-          <ul className="mt-5 border-l-4 border-[var(--sun)] pl-4">
+          <ul className="mt-5 flex flex-wrap gap-2">
             {values.map((value) => (
-              <li key={value} className="font-heading text-2xl tracking-tight uppercase">
+              <li key={value} className="rounded-full bg-foam px-3 py-1 text-sm font-medium text-foreground">
                 {value}
               </li>
             ))}
@@ -77,19 +77,19 @@ export default function AboutPage() {
         ))}
       </ul>
 
-      <div className="mt-16 rounded-[2rem] bg-deep px-6 py-10 text-white sm:px-10">
+      <div className="mt-16 rounded-[2rem] bg-foam px-6 py-10 sm:px-10">
         <h2 className="font-heading text-4xl">Come meet them in the room.</h2>
-        <p className="mt-3 max-w-xl text-white/80">
+        <p className="mt-3 max-w-xl text-muted-foreground">
           The first visit is an hour. Bring the story of what stopped working, and clothes that can be moved out of the way.
         </p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-          <Button variant="secondary" className="h-11 px-5" render={<Link href="/book" />}>
+          <Button className="h-11 px-5" render={<Link href="/book" />}>
             Book a visit
           </Button>
-          <Button variant="outline" className="h-11 px-5" render={<a href={clinic.phoneHref} />}>
+          <Button variant="outline" className="h-11 bg-white px-5" render={<a href={clinic.phoneHref} />}>
             Call {clinic.phone}
           </Button>
-          <Link href="/first-visit" className="text-sm font-medium underline-offset-4 hover:underline">
+          <Link href="/first-visit" className="text-sm font-medium text-primary underline-offset-4 hover:underline">
             What the first visit is like
           </Link>
         </div>

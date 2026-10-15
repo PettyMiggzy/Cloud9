@@ -21,9 +21,9 @@ export default function ServicesPage() {
         </Link>
         . That match is a starting point, not a diagnosis.
       </p>
-      <ul className="mt-12 border-y border-black">
+      <ul className="mt-12 border-y border-border">
         {services.map((service, index) => (
-          <li key={service.slug} className="border-b border-black last:border-b-0">
+          <li key={service.slug} className="border-b border-border last:border-b-0">
             <Link href={`/services/${service.slug}`} className="group grid gap-4 py-6 sm:grid-cols-[4rem_1fr_14rem] sm:items-center">
               <span className="font-heading text-2xl text-primary">{String(index + 1).padStart(2, "0")}</span>
               <span>
