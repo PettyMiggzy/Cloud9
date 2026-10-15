@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Inter, Manrope } from "next/font/google"
+import { Splash } from "@/components/splash"
 import { MobileDock } from "@/components/mobile-dock"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
@@ -89,8 +90,17 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              '(function(){try{var d=document.documentElement;var force=/[?&]splash/.test(location.search);if(location.pathname==="/"&&(force||!sessionStorage.getItem("c9-splash"))&&!matchMedia("(prefers-reduced-motion: reduce)").matches){d.dataset.splash="pending"}}catch(e){}})()',
+          }}
+        />
+      </head>
       <body className={`${inter.variable} ${manrope.variable} min-h-screen antialiased`}>
+        <Splash />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <a
           href="#main"
