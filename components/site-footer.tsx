@@ -97,7 +97,18 @@ export function SiteFooter() {
       </div>
       <div className="mt-10 border-t border-border">
         <div className="mx-auto flex max-w-[1200px] flex-col gap-3 px-5 py-5 text-xs sm:flex-row sm:items-center sm:justify-between sm:px-8">
-          <p>© {new Date().getFullYear()} Cloud 9 Physical Therapy.</p>
+          <p>
+            © {new Date().getFullYear()} Cloud 9 Physical Therapy. Built and maintained by{" "}
+            <a
+              href="https://www.simplicitybuilds.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="underline-offset-4 hover:text-primary hover:underline"
+            >
+              Simplicity Builds
+            </a>
+            .
+          </p>
           <p className="flex gap-4">
             <Link href="/privacy" className="hover:text-primary">
               Privacy
