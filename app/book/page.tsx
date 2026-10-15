@@ -1,19 +1,14 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { BookingWizard } from "@/components/booking-wizard"
-import { clinic, services } from "@/lib/content"
+import { clinic } from "@/lib/content"
 
 export const metadata: Metadata = {
   title: "Book a visit",
   description: "Request a one-to-one physical therapy visit at Cloud 9 in Indianapolis.",
 }
 
-type Props = { searchParams: Promise<{ service?: string }> }
-
-export default async function BookPage({ searchParams }: Props) {
-  const params = await searchParams
-  const initial = services.some((service) => service.slug === params.service) ? params.service : ""
-
+export default function BookPage() {
   return (
     <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 lg:grid-cols-[0.75fr_1.25fr]">
       <div>
@@ -36,7 +31,7 @@ export default async function BookPage({ searchParams }: Props) {
           . Neither one holds a time.
         </p>
       </div>
-      <BookingWizard initialService={initial} />
+      <BookingWizard />
     </div>
   )
 }

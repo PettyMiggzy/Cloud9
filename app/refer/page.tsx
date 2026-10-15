@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { PageHeader } from "@/components/page-header"
 import { ReferralForm } from "@/components/referral-form"
-import { clinic, services } from "@/lib/content"
+import { clinic } from "@/lib/content"
 
 export const metadata: Metadata = {
   title: "Physician referral",
@@ -10,12 +10,7 @@ export const metadata: Metadata = {
     "Send a patient referral to Cloud 9 Physical Therapy by email or fax. Indiana patients can also book without a referral.",
 }
 
-type Props = { searchParams: Promise<{ service?: string }> }
-
-export default async function ReferPage({ searchParams }: Props) {
-  const params = await searchParams
-  const initial = services.some((service) => service.slug === params.service) ? params.service : ""
-
+export default function ReferPage() {
   return (
     <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:py-16">
       <div>
@@ -56,7 +51,7 @@ export default async function ReferPage({ searchParams }: Props) {
           {clinic.addressLines[1]}
         </p>
       </div>
-      <ReferralForm initialService={initial} />
+      <ReferralForm />
     </div>
   )
 }

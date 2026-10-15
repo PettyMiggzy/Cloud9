@@ -3,7 +3,7 @@ import Link from "next/link"
 import { FeeList } from "@/components/fee-list"
 import { InsuranceForm } from "@/components/insurance-form"
 import { PageHeader } from "@/components/page-header"
-import { clinic, fees, services } from "@/lib/content"
+import { clinic, fees } from "@/lib/content"
 
 export const metadata: Metadata = {
   title: "Insurance check",
@@ -11,12 +11,7 @@ export const metadata: Metadata = {
     "Ask Cloud 9 Physical Therapy to verify Medicare or private insurance before a visit. Self-pay rates are listed. Nothing is confirmed until the clinic replies.",
 }
 
-type Props = { searchParams: Promise<{ service?: string }> }
-
-export default async function InsurancePage({ searchParams }: Props) {
-  const params = await searchParams
-  const initial = services.some((service) => service.slug === params.service) ? params.service : ""
-
+export default function InsurancePage() {
   return (
     <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:py-16">
       <div>
@@ -66,7 +61,7 @@ export default async function InsurancePage({ searchParams }: Props) {
           covers clothes, paperwork, and the hour.
         </p>
       </div>
-      <InsuranceForm initialService={initial} />
+      <InsuranceForm />
     </div>
   )
 }

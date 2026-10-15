@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { clinic, getService, services } from "@/lib/content"
 import { hasPhone, isEmail, mailtoHref } from "@/lib/request"
 import { Button } from "@/components/ui/button"
@@ -62,6 +62,12 @@ export function InsuranceForm({ initialService = "" }: { initialService?: string
   })
   const [attempted, setAttempted] = useState(false)
   const [ready, setReady] = useState(false)
+
+  useEffect(() => {
+    const slug = new URLSearchParams(window.location.search).get("service") ?? ""
+    if (!services.some((service) => service.slug === slug)) return
+    setForm((current) => (current.visit ? current : { ...current, visit: slug }))
+  }, [])
 
   const errors = attempted ? validate(form) : {}
   const invalid = Object.keys(errors).length > 0

@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import Link from "next/link"
 import { clinic, getService, saturdayTimes, services, weekdayTimes } from "@/lib/content"
 import { Button } from "@/components/ui/button"
@@ -66,6 +66,12 @@ export function BookingWizard({ initialService = "" }: { initialService?: string
     phone: "",
     notes: "",
   })
+
+  useEffect(() => {
+    const slug = new URLSearchParams(window.location.search).get("service") ?? ""
+    if (!services.some((item) => item.slug === slug)) return
+    setForm((current) => (current.service ? current : { ...current, service: slug }))
+  }, [])
 
   const slots = useMemo(() => {
     if (!form.date) return weekdayTimes
