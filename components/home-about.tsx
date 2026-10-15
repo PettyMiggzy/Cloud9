@@ -11,7 +11,7 @@ const stats = [
 
 export function HomeAbout() {
   return (
-    <section className="bg-[#E8F4F8] py-24 md:py-32">
+    <section className="bg-[#E8F4F8] py-16 md:py-32">
       <div className="mx-auto grid max-w-[1200px] items-center gap-10 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
         <Reveal>
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5">
@@ -37,7 +37,7 @@ export function HomeAbout() {
               The work runs from recovery after an injury through longer-term pain. Manual therapy, dry needling, and exercise happen with the clinician who stays. No referral is required.
             </p>
           </div>
-          <dl className="mt-8 grid grid-cols-3 gap-4 border-t border-[#0F4C5C]/15 pt-6">
+          <dl className="mt-8 grid gap-4 border-t border-[#0F4C5C]/15 pt-6 sm:grid-cols-3">
             {stats.map((stat) => (
               <div key={stat.label}>
                 <dt className="font-heading text-2xl font-semibold text-[#0F4C5C] sm:text-3xl">{stat.value}</dt>

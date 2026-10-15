@@ -6,11 +6,11 @@ export function HomeTestimonials() {
   if (!featured) return null
 
   return (
-    <section className="bg-white py-24 md:py-32">
+    <section className="bg-white py-16 md:py-32">
       <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
         <h2 className="text-[1.875rem] leading-snug sm:text-[2.5rem]">In their words, as written.</h2>
         <figure className="mt-12 max-w-3xl">
-          <blockquote className="text-2xl leading-snug text-[#1E293B] sm:text-3xl">
+          <blockquote className="text-xl leading-snug text-[#1E293B] sm:text-3xl">
             <p>“{featured.text}”</p>
           </blockquote>
           <figcaption className="mt-6 text-sm text-[#475569]">

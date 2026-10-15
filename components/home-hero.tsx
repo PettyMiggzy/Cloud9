@@ -5,61 +5,56 @@ import { Button } from "@/components/ui/button"
 import { clinic } from "@/lib/content"
 
 const facts = [
-  { title: "5-star", detail: "Google reviews" },
-  { title: "Saturday", detail: "Appointments until 2" },
-  { title: "Medicare", detail: "And most private plans" },
+  "5-star Google reviews",
+  "Saturday appointments until 2:00 pm",
+  "Medicare and most private plans",
 ]
 
 export function HomeHero() {
   return (
     <section className="bg-[#f4f8fb]">
-      <div className="mx-auto grid max-w-[1200px] items-center gap-10 px-5 py-16 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:py-24">
-        <BlurFade>
+      <div className="mx-auto grid max-w-[1200px] lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8 lg:py-24">
+        <figure className="lg:order-2">
+          <div className="overflow-hidden bg-white lg:rounded-2xl lg:shadow-sm lg:ring-1 lg:ring-black/5">
+            <Image
+              src="/images/clinic/gym.jpg"
+              alt="The Cloud 9 gym, with parallel bars, exercise balls, and the values painted on the wall"
+              width={1600}
+              height={1200}
+              priority
+              sizes="(min-width: 1024px) 560px, 100vw"
+              className="aspect-[3/2] w-full object-cover lg:aspect-[4/3]"
+            />
+          </div>
+          <figcaption className="px-5 pt-3 text-sm leading-relaxed text-[#475569] lg:px-0">
+            The gym at {clinic.addressLines[0]}, {clinic.addressLines[1]}.
+          </figcaption>
+        </figure>
+
+        <BlurFade className="px-5 py-8 lg:order-1 lg:px-0 lg:py-0">
           <p className="text-sm font-medium text-[#0F4C5C]">Physical therapy in Indianapolis</p>
-          <h1 className="mt-4 max-w-xl text-4xl leading-[1.08] font-semibold tracking-tight text-balance text-[#14324f] sm:text-6xl">
+          <h1 className="mt-3 max-w-xl text-[2.125rem] leading-[1.12] font-semibold tracking-tight text-balance text-[#14324f] sm:text-6xl">
             Your journey to recovery starts here.
           </h1>
-          <p className="mt-6 max-w-md text-lg leading-relaxed text-[#475569]">
+          <p className="mt-4 max-w-md text-base leading-relaxed text-[#475569] sm:text-lg">
             One clinician stays the whole hour. The plan is built around you, so you can get back to what you love.
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button className="h-12 px-6 text-base" render={<Link href="/book" />}>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Button className="h-12 w-full px-6 text-base sm:w-auto" render={<Link href="/book" />}>
               Book appointment
             </Button>
-            <a href={clinic.phoneHref} className="inline-flex h-12 items-center text-base font-semibold text-[#0F4C5C] underline-offset-4 hover:underline">
+            <a href={clinic.phoneHref} className="inline-flex h-12 items-center justify-center text-base font-semibold text-[#0F4C5C] underline-offset-4 hover:underline sm:justify-start">
               {clinic.phone}
             </a>
           </div>
-          <dl className="mt-12 grid grid-cols-3 gap-4 border-t border-black/10 pt-6">
+          <ul className="mt-8 space-y-2 border-t border-black/10 pt-6 text-sm text-[#334155]">
             {facts.map((fact) => (
-              <div key={fact.title}>
-                <dt className="text-sm font-semibold text-[#1E293B]">{fact.title}</dt>
-                <dd className="mt-1 text-sm leading-snug text-[#475569]">{fact.detail}</dd>
-              </div>
+              <li key={fact}>{fact}</li>
             ))}
-          </dl>
+          </ul>
           <p className="sr-only">
             Call {clinic.phone} or visit {clinic.address}.
           </p>
-        </BlurFade>
-
-        <BlurFade delay={0.08}>
-          <figure>
-            <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5">
-              <Image
-                src="/images/clinic/gym.jpg"
-                alt="The Cloud 9 gym, with parallel bars, exercise balls, and the values painted on the wall"
-                width={1600}
-                height={1200}
-                priority
-                sizes="(min-width: 1024px) 560px, 100vw"
-                className="aspect-[4/3] w-full object-cover"
-              />
-            </div>
-            <figcaption className="mt-3 text-sm leading-relaxed text-[#475569]">
-              The gym at {clinic.addressLines[0]}, {clinic.addressLines[1]}.
-            </figcaption>
-          </figure>
         </BlurFade>
       </div>
     </section>

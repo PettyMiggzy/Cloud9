@@ -92,7 +92,7 @@ export function CloudMark({ className }: { className?: string }) {
   }, [])
 
   return (
-    <span className={cn("cloud-float relative block h-11 w-16 shrink-0", className)}>
+    <span className={cn("cloud-float relative block h-10 w-14 shrink-0 sm:h-11 sm:w-16", className)}>
       <canvas ref={canvasRef} width={480} height={360} className="h-full w-full" aria-hidden="true" />
     </span>
   )
@@ -120,7 +120,7 @@ export function Logo({
         alt={alt}
         width={1138}
         height={398}
-        className="h-8 w-auto mix-blend-multiply"
+        className="h-7 w-auto mix-blend-multiply sm:h-8"
       />
     </span>
   )

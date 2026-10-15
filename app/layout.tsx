@@ -92,7 +92,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           Skip to content
         </a>
         <SiteHeader />
-        <main id="main" className="pb-24 md:pb-0">
+        <main id="main" className="pb-28 md:pb-0">
           {children}
         </main>
         <SiteFooter />

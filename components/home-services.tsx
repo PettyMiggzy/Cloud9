@@ -20,7 +20,7 @@ export function HomeServices() {
   const [lead, ...rest] = featured
 
   return (
-    <section className="bg-white py-24 md:py-32">
+    <section className="bg-white py-16 md:py-32">
       <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
         <div className="flex items-end justify-between gap-6">
           <h2 className="text-[1.875rem] leading-snug sm:text-[2.5rem]">Where people start.</h2>
@@ -30,7 +30,23 @@ export function HomeServices() {
           </Link>
         </div>
 
-        <BentoGrid className="mt-12 lg:grid-rows-2">
+        <ul className="mt-8 divide-y divide-black/10 border-y border-black/10 lg:hidden">
+          {services.map((service) => (
+            <li key={service.slug}>
+              <Link href={`/services/${service.slug}`} className="flex items-center gap-4 py-4">
+                <div className="relative size-16 shrink-0 overflow-hidden rounded-xl bg-[#E8F4F8]">
+                  <Image src={service.image} alt="" fill sizes="64px" className="object-cover" />
+                </div>
+                <span>
+                  <span className="block font-semibold text-[#1E293B]">{service.name}</span>
+                  <span className="mt-1 line-clamp-2 block text-sm leading-snug text-[#475569]">{service.short}</span>
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <BentoGrid className="mt-12 hidden lg:grid lg:grid-rows-2">
           {lead ? (
             <BentoCard className="lg:col-span-4 lg:row-span-2">
               <Link href={`/services/${lead.slug}`} className="group flex h-full flex-col">
