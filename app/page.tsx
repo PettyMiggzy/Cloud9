@@ -28,7 +28,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section id="faq" className="scroll-mt-28 bg-[#FAFBFC] py-24 md:py-32">
+      <section id="faq" className="scroll-mt-24 bg-white py-24 md:py-32">
         <div className="mx-auto max-w-3xl px-5 sm:px-8">
           <Reveal>
             <p className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">FAQ</p>

@@ -51,11 +51,8 @@ function NavLinks({ onNavigate, className }: { onNavigate?: () => void; classNam
 }
 
 export function SiteHeader() {
-  const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const home = pathname === "/"
-
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
     onScroll()
@@ -67,7 +64,7 @@ export function SiteHeader() {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-40 h-24 border-b transition-shadow duration-200",
+          "fixed inset-x-0 top-0 z-40 h-16 border-b transition-shadow duration-200",
           scrolled
             ? "border-border bg-white shadow-sm"
             : "border-border bg-white"
@@ -111,7 +108,7 @@ export function SiteHeader() {
           </div>
         </div>
       </header>
-      {home ? null : <div className="h-24" aria-hidden="true" />}
+      <div className="h-16" aria-hidden="true" />
     </>
   )
 }
