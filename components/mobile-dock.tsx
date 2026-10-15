@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 
 export function MobileDock() {
   const pathname = usePathname()
-  if (pathname === "/book") return null
+  if (pathname === "/book" || pathname === "/booking") return null
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 px-3 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-md md:hidden print:hidden">
@@ -16,7 +16,7 @@ export function MobileDock() {
           Call
         </Button>
         <Button className="h-11" render={<Link href="/book" />}>
-          Book a visit
+          Book appointment
         </Button>
       </div>
     </div>

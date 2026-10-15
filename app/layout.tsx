@@ -1,21 +1,25 @@
 import type { Metadata } from "next"
-import { Outfit } from "next/font/google"
+import { Inter, Manrope } from "next/font/google"
 import { MobileDock } from "@/components/mobile-dock"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
-import { clinic } from "@/lib/content"
+import { clinic, reviews } from "@/lib/content"
 import "./globals.css"
 
-const outfit = Outfit({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-inter",
 })
 
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cloud9physicaltherapy.com"),
   title: {
-    default: "Cloud 9 Physical Therapy",
+    default: "Cloud 9 Physical Therapy · Indianapolis",
     template: "%s · Cloud 9 Physical Therapy",
   },
   description:
@@ -23,23 +27,23 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Cloud 9 Physical Therapy",
     description:
-      "One-to-one physical therapy on the south side of Indianapolis. The hour belongs to you.",
+      "Your journey to recovery starts here. Personalized physical therapy on the south side of Indianapolis.",
     siteName: "Cloud 9 Physical Therapy",
     locale: "en_US",
     type: "website",
-    images: ["/images/clinic/about-room.jpg"],
+    images: ["/images/clinic/services.jpg"],
   },
 }
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": ["PhysicalTherapy", "LocalBusiness"],
+  "@type": ["PhysicalTherapy", "MedicalBusiness", "LocalBusiness"],
   name: clinic.name,
   telephone: clinic.phone,
   faxNumber: clinic.fax,
   email: clinic.email,
   url: "https://cloud9physicaltherapy.com",
-  image: "/images/clinic/about-room.jpg",
+  image: "https://cloud9physicaltherapy.com/images/clinic/services.jpg",
   hasMap: clinic.mapsUrl,
   areaServed: "Indianapolis, IN",
   paymentAccepted: "Medicare, private insurance, self-pay",
@@ -67,16 +71,19 @@ const jsonLd = {
       closes: "14:00",
     },
   ],
+  review: reviews.map((review) => ({
+    "@type": "Review",
+    author: { "@type": "Person", name: review.name },
+    reviewBody: review.text,
+    reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+    url: review.url,
+  })),
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${outfit.variable} min-h-screen antialiased`}>
-        <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10">
-          <img src="/images/sky.jpg" alt="" className="h-full w-full object-cover object-top" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.12)_0%,rgba(226,242,250,0.48)_32%,rgba(247,251,254,0.92)_64%,#f7fbfe_100%)]" />
-        </div>
+      <body className={`${inter.variable} ${manrope.variable} min-h-screen antialiased`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <a
           href="#main"
@@ -85,7 +92,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           Skip to content
         </a>
         <SiteHeader />
-        <main id="main" className="pb-24 md:pb-0">{children}</main>
+        <main id="main" className="pb-24 md:pb-0">
+          {children}
+        </main>
         <SiteFooter />
         <MobileDock />
       </body>

@@ -8,7 +8,7 @@ import {
 
 export function FaqList({ items = faqs }: { items?: typeof faqs }) {
   return (
-    <Accordion className="divide-y divide-border border-y border-border">
+    <Accordion multiple={false} className="divide-y divide-border border-y border-border">
       {items.map((item) => (
         <AccordionItem key={item.question} value={item.question} className="border-0">
           <AccordionTrigger className="py-4 text-base font-medium hover:no-underline">

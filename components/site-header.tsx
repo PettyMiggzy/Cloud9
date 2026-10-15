@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation"
 import { MenuIcon } from "lucide-react"
 import { Logo } from "@/components/logo"
 import { OpenNow } from "@/components/open-now"
-import { PatientToolLinks, PatientsMenu } from "@/components/patient-menu"
+import { PatientToolLinks } from "@/components/patient-menu"
 import { clinic, nav } from "@/lib/content"
 import { Button } from "@/components/ui/button"
 import {
@@ -19,12 +19,18 @@ import {
 } from "@/components/ui/dialog"
 import { cn } from "cn"
 
+function isActive(pathname: string, href: string) {
+  if (href === "/") return pathname === "/"
+  if (href.startsWith("/#")) return false
+  return pathname === href || pathname.startsWith(`${href}/`)
+}
+
 function NavLinks({ onNavigate, className }: { onNavigate?: () => void; className?: string }) {
   const pathname = usePathname()
   return (
-    <nav className={className}>
+    <nav className={className} aria-label="Primary">
       {nav.map((item) => {
-        const active = pathname === item.href || pathname.startsWith(`${item.href}/`)
+        const active = isActive(pathname, item.href)
         return (
           <Link
             key={item.href}
@@ -32,8 +38,8 @@ function NavLinks({ onNavigate, className }: { onNavigate?: () => void; classNam
             onClick={onNavigate}
             aria-current={active ? "page" : undefined}
             className={cn(
-              "text-sm font-medium",
-              active ? "text-primary" : "text-foreground/75 hover:text-primary"
+              "text-sm font-medium transition-colors duration-200",
+              active ? "text-primary" : "text-[#1E293B] hover:text-primary"
             )}
           >
             {item.label}
@@ -48,6 +54,7 @@ export function SiteHeader() {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const home = pathname === "/"
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -57,70 +64,54 @@ export function SiteHeader() {
   }, [])
 
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-40 border-b backdrop-blur-xl transition-colors duration-300",
-        scrolled ? "border-border bg-[#f7fbfe]/92" : "border-white/40 bg-white/30"
-      )}
-    >
-      <div className={cn("overflow-hidden text-foreground transition-all duration-300", scrolled ? "max-h-0" : "max-h-12 bg-[#d5eef8]/75")}>
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2 text-xs sm:text-sm">
-          <p className="truncate">{clinic.address}</p>
-          <OpenNow className="shrink-0" />
-          <a href={clinic.phoneHref} className="shrink-0 font-medium underline-offset-4 hover:underline">
-            {clinic.phone}
-          </a>
-        </div>
-      </div>
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-        <Link href="/" aria-label="Cloud 9 Physical Therapy" className="flex shrink-0 items-center">
-          <Logo
-            priority
-            className={cn("h-11 w-auto transition-all duration-300 sm:h-14", scrolled && "h-10 sm:h-11")}
-          />
-        </Link>
-        <NavLinks className="hidden items-center gap-5 lg:flex xl:gap-7" />
-        <div className="flex items-center gap-3">
-          <PatientsMenu />
-          <OpenNow className={cn("shrink-0", scrolled ? "inline-flex" : "hidden")} />
-          <Button
-            render={<Link href="/book" />}
-            className="hidden h-10 px-4 md:inline-flex"
-          >
-            Book a visit
-          </Button>
-          <Dialog open={menuOpen} onOpenChange={setMenuOpen}>
-            <DialogTrigger
-              render={<Button variant="outline" size="icon" className="lg:hidden" aria-label="Open menu" />}
-            >
-              <MenuIcon />
-            </DialogTrigger>
-            <DialogContent className="max-h-[min(40rem,calc(100dvh-6rem))] overflow-y-auto sm:max-w-sm">
-              <DialogHeader>
-                <DialogTitle>Cloud 9</DialogTitle>
-                <DialogDescription>South side Indianapolis physical therapy.</DialogDescription>
-              </DialogHeader>
-              <p className="text-xs font-semibold tracking-[0.16em] text-muted-foreground uppercase">Around the clinic</p>
-              <NavLinks
-                className="flex flex-col gap-3 text-lg"
-                onNavigate={() => setMenuOpen(false)}
-              />
-              <p className="pt-2 text-xs font-semibold tracking-[0.16em] text-muted-foreground uppercase">For patients</p>
-              <PatientToolLinks className="flex flex-col gap-4" onNavigate={() => setMenuOpen(false)} />
-              <Button
-                render={<Link href="/book" onClick={() => setMenuOpen(false)} />}
-                className="h-11"
+    <>
+      <header
+        className={cn(
+          "fixed inset-x-0 top-0 z-40 h-[4.5rem] border-b transition-shadow duration-200",
+          scrolled || !home
+            ? "border-border bg-white shadow-[0_8px_24px_-18px_rgba(15,76,92,0.45)]"
+            : "border-transparent bg-white/85 backdrop-blur-md"
+        )}
+      >
+        <div className="mx-auto flex h-full max-w-[1200px] items-center justify-between gap-4 px-5 sm:px-8">
+          <Link href="/" aria-label="Cloud 9 Physical Therapy" className="flex shrink-0 items-center">
+            <Logo priority className="h-10 w-auto sm:h-11" />
+          </Link>
+          <NavLinks className="hidden items-center gap-6 lg:flex" />
+          <div className="flex items-center gap-3 sm:gap-4">
+            <OpenNow className="hidden xl:inline-flex" />
+            <a href={clinic.phoneHref} className="hidden text-sm font-semibold text-[#1E293B] hover:text-primary sm:inline">
+              {clinic.phone}
+            </a>
+            <Button render={<Link href="/book" />} className="hidden h-10 px-4 md:inline-flex">
+              Book appointment
+            </Button>
+            <Dialog open={menuOpen} onOpenChange={setMenuOpen}>
+              <DialogTrigger
+                render={<Button variant="outline" size="icon" className="lg:hidden" aria-label="Open menu" />}
               >
-                Book a visit
-              </Button>
-              <a href={clinic.phoneHref} className="text-center text-sm text-primary">
-                Or call {clinic.phone}
-              </a>
-              <p className="sr-only">Current page {pathname}</p>
-            </DialogContent>
-          </Dialog>
+                <MenuIcon />
+              </DialogTrigger>
+              <DialogContent className="max-h-[min(40rem,calc(100dvh-6rem))] overflow-y-auto sm:max-w-sm">
+                <DialogHeader>
+                  <DialogTitle>Cloud 9 Physical Therapy</DialogTitle>
+                  <DialogDescription>South side Indianapolis.</DialogDescription>
+                </DialogHeader>
+                <NavLinks className="flex flex-col gap-3 text-lg" onNavigate={() => setMenuOpen(false)} />
+                <p className="pt-2 text-xs font-semibold tracking-[0.16em] text-muted-foreground uppercase">For patients</p>
+                <PatientToolLinks className="flex flex-col gap-4" onNavigate={() => setMenuOpen(false)} />
+                <Button render={<Link href="/book" onClick={() => setMenuOpen(false)} />} className="h-11">
+                  Book appointment
+                </Button>
+                <a href={clinic.phoneHref} className="text-center text-sm font-semibold text-primary">
+                  Call {clinic.phone}
+                </a>
+              </DialogContent>
+            </Dialog>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+      {home ? null : <div className="h-[4.5rem]" aria-hidden="true" />}
+    </>
   )
 }

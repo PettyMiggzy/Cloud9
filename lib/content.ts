@@ -18,10 +18,45 @@ export const clinic = {
 }
 
 export const nav = [
-  { href: "/services", label: "Care" },
-  { href: "/about", label: "Team" },
-  { href: "/gallery", label: "Clinic" },
-  { href: "/visit", label: "Visit" },
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
+  { href: "/#faq", label: "FAQ" },
+  { href: "/visit", label: "Contact" },
+]
+
+export const pillars = [
+  {
+    title: "1-on-1 personalized care",
+    body: "One clinician stays the whole session. The plan, the hands-on work, and the exercise happen with the same person.",
+  },
+  {
+    title: "Expert treatment",
+    body: "Evidence-based care from licensed clinicians. Dr. Skye’s work centers on manual therapy and dry needling.",
+  },
+  {
+    title: "Weekend availability",
+    body: "Saturday is open, 8:00 am to 2:00 pm. Weekdays run 7:00 am to 7:00 pm. Sunday is closed.",
+  },
+  {
+    title: "Patient-first approach",
+    body: "No referral is required in Indiana. Medicare and most private plans are accepted, and the clinic verifies benefits.",
+  },
+]
+
+export const processSteps = [
+  {
+    title: "Evaluation",
+    body: "A 60-minute one-to-one visit. You tell the story, and the clinician looks at how you move before a plan is written.",
+  },
+  {
+    title: "Personalized therapy",
+    body: "Follow-ups are 55 minutes with the same clinician. Manual therapy, dry needling, and exercise are matched to that plan.",
+  },
+  {
+    title: "Back to what you love",
+    body: "Most people notice a change within two weeks. How long the rest takes depends on the problem, and the plan changes as you do.",
+  },
 ]
 
 export const patientTools = [
