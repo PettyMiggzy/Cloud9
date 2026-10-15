@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { Logo } from "@/components/logo"
 import { clinic, nav, patientTools } from "@/lib/content"
 
 export function SiteFooter() {
@@ -6,7 +7,7 @@ export function SiteFooter() {
     <footer className="bg-deep pb-24 text-white md:pb-0">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2 lg:col-span-1">
-          <p className="font-heading text-2xl">Cloud 9</p>
+          <Logo tone="light" markClassName="h-10 w-11" />
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/75">
             One-to-one physical therapy on Thompson Road. The hour is yours, and so is the clinician.
           </p>

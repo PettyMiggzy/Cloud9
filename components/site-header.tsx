@@ -1,10 +1,10 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
 import { MenuIcon } from "lucide-react"
+import { Logo } from "@/components/logo"
 import { OpenNow } from "@/components/open-now"
 import { PatientToolLinks, PatientsMenu } from "@/components/patient-menu"
 import { clinic, nav } from "@/lib/content"
@@ -68,15 +68,8 @@ export function SiteHeader() {
         </div>
       </div>
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-        <Link href="/" className="flex items-center gap-3">
-          <Image
-            src="/images/logo.jpg"
-            alt="Cloud 9 Physical Therapy"
-            width={220}
-            height={204}
-            priority
-            className={cn("w-auto transition-all duration-300", scrolled ? "h-11" : "h-14")}
-          />
+        <Link href="/" aria-label="Cloud 9 Physical Therapy" className="flex items-center">
+          <Logo markClassName={cn("transition-all duration-300", scrolled ? "h-9 w-10" : "h-11 w-12")} />
         </Link>
         <NavLinks className="hidden items-center gap-5 lg:flex xl:gap-7" />
         <div className="flex items-center gap-3">
