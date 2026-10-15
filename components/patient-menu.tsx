@@ -65,7 +65,7 @@ export function PatientsMenu({ className }: { className?: string }) {
         onClick={() => setOpen((value) => !value)}
         className={cn(
           "inline-flex items-center gap-1 text-sm font-medium",
-          active || open ? "text-[var(--sun)]" : "text-current/80 hover:text-[var(--sun)]",
+          active || open ? "text-primary" : "text-foreground/80 hover:text-primary",
           className
         )}
       >

@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Outfit, Syne } from "next/font/google"
+import { Outfit } from "next/font/google"
 import { MobileDock } from "@/components/mobile-dock"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
@@ -11,10 +11,6 @@ const outfit = Outfit({
   variable: "--font-outfit",
 })
 
-const display = Syne({
-  subsets: ["latin"],
-  variable: "--font-display",
-})
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cloud9physicaltherapy.com"),
@@ -76,7 +72,7 @@ const jsonLd = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${outfit.variable} ${display.variable} min-h-screen antialiased`}>
+      <body className={`${outfit.variable} min-h-screen antialiased`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <a
           href="#main"

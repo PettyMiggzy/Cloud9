@@ -27,7 +27,7 @@ export function ReviewReel() {
 
   return (
     <div
-      className="overflow-hidden border border-white/15 bg-white/8"
+      className="overflow-hidden rounded-2xl border border-border bg-foam"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -37,20 +37,20 @@ export function ReviewReel() {
     >
       <div className="grid gap-8 p-6 sm:p-10 lg:grid-cols-[1fr_16rem]">
         <blockquote>
-          <p className="text-xs tracking-[0.18em] text-[var(--sun)] uppercase">Google review</p>
-          <p key={review.url} className="stage-photo mt-4 font-heading text-3xl leading-[1.05] text-white sm:text-5xl">
+          <p className="text-sm font-medium text-primary">Google review</p>
+          <p key={review.url} className="stage-photo mt-4 font-heading text-2xl leading-snug font-semibold sm:text-3xl">
             “{review.text}”
           </p>
-          <a href={review.url} className="mt-6 inline-block text-sm font-medium text-[var(--sun)] hover:underline">
+          <a href={review.url} className="mt-6 inline-block text-sm font-medium text-primary hover:underline">
             {review.name}
           </a>
         </blockquote>
         <div className="flex flex-row items-end justify-between gap-3 lg:flex-col lg:items-stretch">
           <div className="flex gap-2">
-            <button type="button" className="border border-white/30 px-3 py-2 text-sm text-white" onClick={() => go(index - 1)}>
+            <button type="button" className="rounded-full border border-border bg-white px-3 py-2 text-sm" onClick={() => go(index - 1)}>
               Prev
             </button>
-            <button type="button" className="border border-white/30 px-3 py-2 text-sm text-white" onClick={() => go(index + 1)}>
+            <button type="button" className="rounded-full border border-border bg-white px-3 py-2 text-sm" onClick={() => go(index + 1)}>
               Next
             </button>
           </div>
@@ -63,14 +63,14 @@ export function ReviewReel() {
                 aria-selected={itemIndex === index}
                 aria-label={`Show review from ${item.name}`}
                 onClick={() => setIndex(itemIndex)}
-                className={cn("h-1.5 transition-all", itemIndex === index ? "w-8 bg-[var(--sun)]" : "w-3 bg-white/30")}
+                className={cn("h-1.5 rounded-full transition-all", itemIndex === index ? "w-8 bg-primary" : "w-3 bg-border")}
               />
             ))}
           </div>
         </div>
       </div>
-      <div className="h-1 bg-white/15">
-        <div key={review.url} className={cn("review-bar h-full bg-[var(--sun)]", paused && "is-paused")} />
+      <div className="h-1 bg-border">
+        <div key={review.url} className={cn("review-bar h-full bg-primary", paused && "is-paused")} />
       </div>
     </div>
   )

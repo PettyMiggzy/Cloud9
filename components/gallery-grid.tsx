@@ -31,7 +31,7 @@ export function GalleryGrid() {
             <button
               type="button"
               onClick={() => setIndex(photoIndex)}
-              className="group block w-full overflow-hidden bg-muted text-left"
+              className="group block w-full overflow-hidden rounded-xl bg-muted text-left"
             >
               <div className="relative aspect-[4/3]">
                 <Image

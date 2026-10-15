@@ -27,7 +27,7 @@ export default function ServicesPage() {
             <Link href={`/services/${service.slug}`} className="group grid gap-4 py-6 sm:grid-cols-[4rem_1fr_14rem] sm:items-center">
               <span className="font-heading text-2xl text-primary">{String(index + 1).padStart(2, "0")}</span>
               <span>
-                <h2 className="font-heading text-3xl leading-none group-hover:bg-[var(--sun)] sm:text-5xl">{service.name}</h2>
+                <h2 className="font-heading text-2xl font-semibold group-hover:text-primary sm:text-3xl">{service.name}</h2>
                 <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">{service.short}</p>
               </span>
               <span className="relative hidden h-24 overflow-hidden sm:block">
