@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { Inter, Manrope } from "next/font/google"
 import { MobileDock } from "@/components/mobile-dock"
-import { Ascent } from "@/components/ascent"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { clinic, reviews } from "@/lib/content"
@@ -105,7 +104,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </main>
         <SiteFooter />
         <MobileDock />
-        <Ascent />
       </body>
     </html>
   )

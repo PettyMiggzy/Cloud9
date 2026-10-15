@@ -1,18 +1,13 @@
 import Image from "next/image"
 import Link from "next/link"
-import { CloudEdge } from "@/components/cloud-edge"
-import { Puff } from "@/components/sky"
 import { Button } from "@/components/ui/button"
 import { clinic } from "@/lib/content"
 
 export function HomeCta() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#14324f] py-28 md:py-48">
-      <Image src="/images/art-wave.jpg" alt="" fill sizes="100vw" className="-z-10 object-cover" />
-      <div className="absolute inset-0 -z-10 bg-[#0b2238]/55" />
-      <CloudEdge hang className="text-white" />
-      <Puff n={1} depth={0.3} drift={19} className="top-[14%] right-[4%] hidden w-56 md:block" />
-      <Puff n={3} depth={0.4} drift={15} delay={5} className="bottom-[10%] right-[24%] hidden w-28 md:block" />
+    <section className="relative isolate overflow-hidden bg-[#14324f] py-28 md:py-44">
+      <Image src="/images/sky-night.jpg" alt="" fill sizes="100vw" className="-z-10 object-cover" />
+      <div className="absolute inset-0 -z-10 bg-[#0a1c30]/35" />
       <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
         <h2 className="max-w-2xl text-[2.5rem] leading-[1.02] font-semibold tracking-tight text-balance text-white sm:text-7xl">
           Ready when you are.

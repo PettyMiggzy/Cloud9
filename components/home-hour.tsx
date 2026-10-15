@@ -1,8 +1,7 @@
 "use client"
 
 import { motion, useReducedMotion } from "motion/react"
-import { CloudEdge } from "@/components/cloud-edge"
-import { Puff } from "@/components/sky"
+import Image from "next/image"
 import { processSteps } from "@/lib/content"
 
 const OUTER = 2 * Math.PI * 88
@@ -21,10 +20,9 @@ export function HomeHour() {
         }
 
   return (
-    <section className="relative isolate overflow-hidden bg-[#14324f] py-28 text-white md:py-44">
-      <CloudEdge hang className="text-white" />
-      <Puff n={2} depth={0.3} drift={20} className="top-[10%] -right-[6%] w-40 opacity-30 md:w-72" />
-      <Puff n={1} depth={0.45} drift={17} delay={6} className="bottom-[14%] -left-[5%] w-36 opacity-20 md:w-64" />
+    <section className="relative isolate overflow-hidden bg-[#14324f] py-24 text-white md:py-40">
+      <Image src="/images/sky-dusk.jpg" alt="" fill sizes="100vw" className="-z-20 object-cover" />
+      <div className="absolute inset-0 -z-10 bg-[#0a1c30]/55" />
       <div className="mx-auto grid max-w-[1200px] items-center gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:gap-24">
         <div>
           <p className="text-sm font-semibold tracking-[0.14em] text-[#A9E4F4] uppercase">How a visit works</p>
@@ -64,7 +62,6 @@ export function HomeHour() {
           </div>
         </div>
       </div>
-      <CloudEdge className="text-white" />
     </section>
   )
 }
