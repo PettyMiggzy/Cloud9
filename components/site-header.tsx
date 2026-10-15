@@ -81,7 +81,7 @@ export function SiteHeader() {
         <NavLinks className="hidden items-center gap-5 lg:flex xl:gap-7" />
         <div className="flex items-center gap-3">
           <PatientsMenu />
-          <OpenNow className={cn("shrink-0", scrolled ? "inline-flex" : "hidden xl:inline-flex")} />
+          <OpenNow className={cn("shrink-0", scrolled ? "inline-flex" : "hidden")} />
           <Button
             render={<Link href="/book" />}
             className="hidden h-10 px-4 md:inline-flex"

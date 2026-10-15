@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Fraunces, Outfit } from "next/font/google"
+import { Bricolage_Grotesque, Outfit } from "next/font/google"
 import { MobileDock } from "@/components/mobile-dock"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
@@ -11,9 +11,9 @@ const outfit = Outfit({
   variable: "--font-outfit",
 })
 
-const fraunces = Fraunces({
+const display = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  variable: "--font-display",
 })
 
 export const metadata: Metadata = {
@@ -76,7 +76,7 @@ const jsonLd = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${outfit.variable} ${fraunces.variable} min-h-screen antialiased`}>
+      <body className={`${outfit.variable} ${display.variable} min-h-screen antialiased`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <a
           href="#main"

@@ -27,14 +27,14 @@ export function ServiceExplorer() {
                   onFocus={() => setActive(index)}
                   onClick={() => setActive(index)}
                   className={cn(
-                    "grid w-full grid-cols-[2.5rem_1fr] items-center gap-3 py-3 text-left transition-colors",
-                    selected ? "text-primary" : "text-foreground hover:text-primary"
+                    "grid w-full grid-cols-[2.5rem_1fr] items-center gap-3 px-3 py-4 text-left transition-colors",
+                    selected ? "bg-deep text-white" : "text-foreground hover:bg-foam"
                   )}
                 >
-                  <span className="text-xs tabular-nums text-muted-foreground">{String(index + 1).padStart(2, "0")}</span>
+                  <span className={cn("text-xs tabular-nums", selected ? "text-[var(--sun)]" : "text-muted-foreground")}>{String(index + 1).padStart(2, "0")}</span>
                   <span>
                     <span className="block font-heading text-xl sm:text-2xl">{item.name}</span>
-                    <span className={cn("mt-0.5 block text-sm text-muted-foreground transition-all", selected ? "max-h-16 opacity-100" : "max-h-0 overflow-hidden opacity-0 sm:max-h-16 sm:opacity-100")}>
+                    <span className={cn("mt-0.5 block text-sm transition-all", selected ? "max-h-16 text-white/75 opacity-100" : "max-h-0 overflow-hidden text-muted-foreground opacity-0 sm:max-h-16 sm:opacity-100")}>
                       {item.short}
                     </span>
                   </span>
@@ -46,8 +46,8 @@ export function ServiceExplorer() {
       </div>
 
       <div className="order-1 lg:sticky lg:top-28 lg:order-2">
-        <Link href={`/services/${service.slug}`} className="group block overflow-hidden rounded-[1.75rem] border border-border bg-card">
-          <div className="relative aspect-[16/10] overflow-hidden">
+        <Link href={`/services/${service.slug}`} className="group block overflow-hidden bg-deep text-white">
+          <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[5/4]">
             <Image
               key={service.slug}
               src={service.image}

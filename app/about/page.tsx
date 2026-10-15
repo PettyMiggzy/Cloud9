@@ -34,9 +34,9 @@ export default function AboutPage() {
         </div>
         <div>
           <h2 className="font-heading text-3xl">Painted where patients can see it.</h2>
-          <ul className="mt-5 flex flex-wrap gap-2">
+          <ul className="mt-5 border-l-4 border-[var(--sun)] pl-4">
             {values.map((value) => (
-              <li key={value} className="rounded-full border border-border bg-foam px-3 py-1 text-sm">
+              <li key={value} className="font-heading text-2xl tracking-tight uppercase">
                 {value}
               </li>
             ))}
