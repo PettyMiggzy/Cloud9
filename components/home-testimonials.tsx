@@ -1,33 +1,30 @@
 import { reviews } from "@/lib/content"
 
-export function HomeTestimonials() {
-  const ordered = [reviews[1], reviews[4], reviews[3], reviews[2], reviews[0]].filter((review) => review != null)
-  const [featured, ...rest] = ordered
-  if (!featured) return null
-
+function Card({ review }: { review: (typeof reviews)[number] }) {
   return (
-    <section className="bg-white py-16 md:py-32">
+    <li className="w-[19rem] shrink-0 rounded-3xl bg-white p-7 ring-1 ring-black/5 sm:w-96">
+      <p aria-hidden="true" className="text-amber-400">★★★★★</p>
+      <p className="mt-3 text-[17px] leading-relaxed text-[#1E293B]">“{review.text}”</p>
+      <a href={review.url} target="_blank" rel="noreferrer" className="mt-5 inline-block text-sm font-semibold text-[#14324f] hover:text-primary">
+        {review.name} · Google review
+      </a>
+    </li>
+  )
+}
+
+export function HomeTestimonials() {
+  return (
+    <section className="overflow-hidden bg-[#f4f8fb] py-20 md:py-32">
       <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
-        <h2 className="text-[1.875rem] leading-snug sm:text-[2.5rem]">In their words, as written.</h2>
-        <figure className="mt-12 max-w-3xl">
-          <blockquote className="text-xl leading-snug text-[#1E293B] sm:text-3xl">
-            <p>“{featured.text}”</p>
-          </blockquote>
-          <figcaption className="mt-6 text-sm text-[#475569]">
-            <a href={featured.url} target="_blank" rel="noreferrer" className="font-semibold text-[#1E293B] hover:text-primary">
-              {featured.name}
-            </a>
-            <span> · 5-star review via Google</span>
-          </figcaption>
-        </figure>
-        <ul className="mt-12 divide-y divide-black/10 border-y border-black/10">
-          {rest.map((review) => (
-            <li key={review.url} className="grid gap-3 py-6 md:grid-cols-[10rem_1fr] md:gap-8">
-              <a href={review.url} target="_blank" rel="noreferrer" className="text-sm font-semibold text-[#1E293B] hover:text-primary">
-                {review.name}
-              </a>
-              <p className="text-[17px] leading-relaxed text-[#334155]">“{review.text}”</p>
-            </li>
+        <p className="text-sm font-semibold tracking-[0.14em] text-primary uppercase">Reviews</p>
+        <h2 className="mt-4 text-[2.25rem] leading-[1.05] font-semibold tracking-tight text-balance text-[#14324f] sm:text-6xl">
+          In their words, as written.
+        </h2>
+      </div>
+      <div className="marquee mt-12 overflow-hidden">
+        <ul className="marquee-track flex w-max gap-5 px-5">
+          {[...reviews, ...reviews].map((review, index) => (
+            <Card key={`${review.url}-${index}`} review={review} />
           ))}
         </ul>
       </div>

@@ -5,16 +5,17 @@ const icons = [UserRound, Stethoscope, CalendarClock, HeartHandshake]
 
 export function HomeFeatures() {
   return (
-    <section className="bg-white py-16 md:py-32">
+    <section className="bg-white py-16 md:py-28">
       <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
-        <h2 className="max-w-xl text-[1.875rem] leading-snug sm:text-[2.5rem]">Care that stays with one person.</h2>
-        <ul className="mt-8 grid gap-x-8 gap-y-8 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {pillars.map((pillar, index) => {
             const Icon = icons[index] ?? UserRound
             return (
-              <li key={pillar.title} className="border-t border-black/10 pt-6">
-                <Icon className="size-5 text-primary" aria-hidden="true" />
-                <h3 className="mt-4 text-lg leading-snug">{pillar.title}</h3>
+              <li key={pillar.title} className="rounded-3xl bg-[#f4f8fb] p-7 transition-transform duration-300 hover:-translate-y-1 motion-reduce:transition-none">
+                <span className="grid size-12 place-items-center rounded-full bg-white text-primary ring-1 ring-black/5">
+                  <Icon className="size-5" aria-hidden="true" />
+                </span>
+                <h3 className="mt-6 text-xl font-semibold text-[#14324f]">{pillar.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-[#475569]">{pillar.body}</p>
               </li>
             )

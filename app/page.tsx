@@ -4,8 +4,8 @@ import { HomeCta } from "@/components/home-cta"
 import { HomeFees } from "@/components/home-fees"
 import { HomeFeatures } from "@/components/home-features"
 import { HomeHero } from "@/components/home-hero"
-import { HomeProcess } from "@/components/home-process"
-import { HomeServices } from "@/components/home-services"
+import { HomeHour } from "@/components/home-hour"
+import { HomeCareRail } from "@/components/home-care-rail"
 import { HomeTeam } from "@/components/home-team"
 import { HomeTestimonials } from "@/components/home-testimonials"
 import { PartnerRail } from "@/components/partner-rail"
@@ -16,9 +16,10 @@ export default function HomePage() {
     <>
       <HomeHero />
       <HomeFeatures />
+      <HomeHour />
+      <HomeCareRail />
       <HomeAbout />
       <HomeTeam />
-      <HomeServices />
       <HomeFees />
       <HomeTestimonials />
       <section className="border-y border-border bg-white py-16 md:py-32">
@@ -43,7 +44,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <HomeProcess />
       <HomeCta />
     </>
   )

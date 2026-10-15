@@ -2,31 +2,37 @@ import Link from "next/link"
 import { fees } from "@/lib/content"
 
 export function HomeFees() {
+  const tiles = [fees.evaluation, fees.treatment]
   return (
-    <section className="bg-[#f4f8fb] py-16 md:py-32">
+    <section className="bg-[#E8F4F8] py-20 md:py-32">
       <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
-        <h2 className="max-w-xl text-[1.875rem] leading-snug sm:text-[2.5rem]">Self-pay, stated up front.</h2>
-        <p className="mt-4 max-w-xl text-base leading-relaxed text-[#475569]">
+        <p className="text-sm font-semibold tracking-[0.14em] text-primary uppercase">Self-pay</p>
+        <h2 className="mt-4 max-w-2xl text-[2.25rem] leading-[1.05] font-semibold tracking-tight text-balance text-[#14324f] sm:text-6xl">
+          The price, before you ask.
+        </h2>
+        <p className="mt-5 max-w-xl text-lg leading-relaxed text-[#334155]">
           {fees.medicareNote} Most private plans are accepted, and the clinic verifies benefits before you come in.
         </p>
-        <dl className="mt-8 divide-y divide-black/10 border-y border-black/10">
-          <div className="flex items-baseline justify-between gap-6 py-4">
-            <dt className="text-[#1E293B]">{fees.evaluation.label}</dt>
-            <dd className="text-lg font-semibold text-[#0F4C5C]">{fees.evaluation.amount}</dd>
-          </div>
-          <div className="flex items-baseline justify-between gap-6 py-4">
-            <dt className="text-[#1E293B]">{fees.treatment.label}</dt>
-            <dd className="text-lg font-semibold text-[#0F4C5C]">{fees.treatment.amount}</dd>
-          </div>
-        </dl>
-        <p className="mt-4 text-sm leading-relaxed text-[#475569]">{fees.cancellationNote}</p>
-        <div className="mt-6 flex flex-col gap-3 text-sm font-semibold sm:flex-row sm:gap-6">
-          <Link href="/insurance" className="text-primary underline-offset-4 hover:underline">
-            Insurance and Medicare
-          </Link>
-          <Link href="/first-visit" className="text-primary underline-offset-4 hover:underline">
-            What the first visit is like
-          </Link>
+        <div className="mt-10 grid gap-4 md:grid-cols-2">
+          {tiles.map((tile) => (
+            <div key={tile.label} className="rounded-3xl bg-white p-8 ring-1 ring-black/5">
+              <p className="text-6xl font-semibold tracking-tight text-[#14324f] sm:text-7xl">{tile.amount}</p>
+              <p className="mt-3 text-lg text-[#334155]">{tile.label}</p>
+            </div>
+          ))}
+        </div>
+        <ul className="mt-4 grid gap-3 sm:grid-cols-3">
+          {fees.packages.map((pkg) => (
+            <li key={pkg.label} className="flex items-baseline justify-between rounded-2xl bg-white/70 px-6 py-4 ring-1 ring-black/5">
+              <span className="text-[#334155]">{pkg.label}</span>
+              <span className="text-xl font-semibold text-[#14324f]">{pkg.amount}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-6 text-[#334155]">{fees.cancellationNote}</p>
+        <div className="mt-4 flex flex-col gap-3 font-semibold sm:flex-row sm:gap-8">
+          <Link href="/insurance" className="text-primary underline-offset-4 hover:underline">Insurance and Medicare</Link>
+          <Link href="/first-visit" className="text-primary underline-offset-4 hover:underline">What the first visit is like</Link>
         </div>
       </div>
     </section>
