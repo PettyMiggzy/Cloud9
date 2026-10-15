@@ -19,24 +19,25 @@ export function HomeHero() {
 
   return (
     <section className="relative isolate overflow-hidden bg-white">
-      <Image src="/images/sky-hero.jpg" alt="" fill priority sizes="100vw" className="-z-10 object-cover object-top" />
-      <div className="mx-auto grid max-w-[1200px] items-center gap-6 px-5 pt-8 pb-52 sm:px-8 md:pt-20 md:pb-72 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[#0b66c9] bg-[url('/images/sky-hero-m.jpg')] bg-cover bg-top md:bg-[url('/images/sky-hero.jpg')]" />
+      <div className="mx-auto grid max-w-[1200px] items-center gap-4 px-5 pt-6 pb-40 sm:px-8 md:gap-6 md:pt-20 md:pb-72 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
         <motion.div
           initial={reduce ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <OpenNow tone="inverse" className="text-white" />
-          <p className="mt-6 text-sm font-semibold tracking-[0.14em] text-white/90 uppercase">
-            Physical therapy · Thompson Road, Indianapolis
+          <p className="mt-4 text-xs font-semibold tracking-[0.12em] text-white uppercase sm:mt-6 sm:text-sm sm:tracking-[0.14em]">
+            <span className="hidden sm:inline">Physical therapy · </span>Thompson Road, Indianapolis
           </p>
-          <h1 className="mt-4 text-[3rem] leading-[0.98] font-semibold tracking-tight text-balance !text-white sm:text-7xl lg:text-[5.5rem]">
+          <h1 className="mt-3 text-[2.75rem] leading-[0.98] font-semibold tracking-tight text-balance !text-white sm:text-7xl lg:text-[5.5rem]">
             The whole hour is yours.
           </h1>
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-white sm:text-xl">
-            One clinician stays with you for every minute. The plan, the hands-on work, and the exercise all happen with the same person.
+          <p className="mt-4 max-w-lg text-lg leading-relaxed text-white [text-shadow:0_1px_14px_rgba(6,58,120,0.55)] sm:mt-6 sm:text-xl">
+            One clinician stays with you for every minute.
+            <span className="hidden sm:inline"> The plan, the hands-on work, and the exercise all happen with the same person.</span>
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="mt-8 hidden flex-col gap-3 sm:flex sm:flex-row sm:items-center">
             <Button className="h-13 w-full bg-white px-7 text-base text-[#14324f] hover:bg-white/90 sm:w-auto" render={<Link href="/book" />}>
               Book appointment
             </Button>
@@ -47,7 +48,7 @@ export function HomeHero() {
               {clinic.phone}
             </a>
           </div>
-          <ul className="mt-8 flex flex-wrap gap-2">
+          <ul className="mt-8 hidden flex-wrap gap-2 sm:flex">
             {facts.map((fact) => (
               <li key={fact} className="rounded-full bg-white px-3 py-1 text-xs font-medium text-[#14324f] sm:px-3.5 sm:py-1.5 sm:text-sm">
                 {fact}
@@ -57,7 +58,7 @@ export function HomeHero() {
         </motion.div>
 
         <motion.figure
-          className="order-first mx-auto w-full max-w-[19rem] sm:max-w-[28rem] lg:order-last lg:max-w-none"
+          className="order-first mx-auto w-full max-w-[14rem] sm:max-w-[28rem] lg:order-last lg:max-w-none"
           animate={reduce ? undefined : { y: [0, -12, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         >
