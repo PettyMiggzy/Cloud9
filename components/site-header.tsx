@@ -68,14 +68,14 @@ export function SiteHeader() {
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-40 h-[4.5rem] border-b transition-shadow duration-200",
-          scrolled || !home
+          scrolled
             ? "border-border bg-white shadow-[0_8px_24px_-18px_rgba(15,76,92,0.45)]"
-            : "border-transparent bg-white/85 backdrop-blur-md"
+            : "border-border bg-white"
         )}
       >
         <div className="mx-auto flex h-full max-w-[1200px] items-center justify-between gap-4 px-5 sm:px-8">
           <Link href="/" aria-label="Cloud 9 Physical Therapy" className="flex shrink-0 items-center">
-            <Logo priority className="h-10 w-auto sm:h-11" />
+            <Logo priority />
           </Link>
           <NavLinks className="hidden items-center gap-6 lg:flex" />
           <div className="flex items-center gap-3 sm:gap-4">

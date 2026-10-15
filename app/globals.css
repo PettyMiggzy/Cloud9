@@ -227,6 +227,10 @@
   animation: lift-in 0.7s ease both;
 }
 
+.logo-still {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .page-enter,
   .kenburns,
@@ -235,5 +239,11 @@
   .review-bar,
   .lift-in {
     animation: none;
+  }
+  .logo-motion {
+    display: none;
+  }
+  .logo-still {
+    display: block;
   }
 }
