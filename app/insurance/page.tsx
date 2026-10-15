@@ -15,7 +15,7 @@ export default function InsurancePage() {
   return (
     <div className="mx-auto grid max-w-6xl gap-8 px-5 py-24 sm:px-8 md:py-32 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
       <div>
-        <PageHeader eyebrow="Benefits" title="Medicare, a private plan, or self-pay.">
+        <PageHeader eyebrow="Benefits" title="Medicare, a private plan, or self-pay." art="/images/art-ins.jpg">
           <p>
             Cloud 9 accepts Medicare and most private insurance. The form asks the clinic to check a plan. It does not confirm coverage, and a visit is not held until they reply.
           </p>

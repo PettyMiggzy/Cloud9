@@ -14,7 +14,7 @@ export default function ReferPage() {
   return (
     <div className="mx-auto grid max-w-6xl gap-8 px-5 py-24 sm:px-8 md:py-32 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
       <div>
-        <PageHeader eyebrow="For a physician’s office" title="Refer a patient to Suite G.">
+        <PageHeader eyebrow="For a physician’s office" title="Refer a patient to Suite G." art="/images/art-ref.jpg">
           <p>
             Send the note by email, or fax it. The form prepares a message to {clinic.email}. It does not register the patient, and the visit is not confirmed until Cloud 9 replies.
           </p>
