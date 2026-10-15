@@ -15,7 +15,7 @@ export function HomeHero() {
   return (
     <section className="relative isolate overflow-hidden bg-white">
       <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[#0b66c9] bg-[url('/images/sky-hero-m.jpg')] bg-cover bg-top md:bg-[url('/images/sky-hero.jpg')]" />
-      <div className="mx-auto grid max-w-[1200px] items-center gap-4 px-5 pt-10 pb-40 sm:px-8 md:gap-6 md:pt-20 md:pb-72 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+      <div className="mx-auto grid max-w-[1200px] items-center gap-4 px-5 pt-28 pb-40 sm:px-8 md:gap-6 md:pt-40 md:pb-72 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
         <motion.div
           initial={reduce ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}

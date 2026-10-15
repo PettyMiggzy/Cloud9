@@ -28,3 +28,9 @@ The dev server listens on [http://127.0.0.1:4317](http://127.0.0.1:4317).
 - `/refer` a referral a physician’s office can email or fax. Patients in Indiana do not need it
 - `/first-visit` what to wear, the hour, cost, paperwork, and cancellation
 - `/southside` the Thompson Road clinic for people searching physical therapy in Indianapolis
+
+## Switching things on
+
+- Google review buttons (homepage reviews and footer) stay hidden until `reviewUrl` in `lib/content.ts` holds the clinic's Google "write a review" link.
+- The "Ask a question" assistant answers only from the clinic's FAQ, hours, fees, and service copy in `lib/content.ts` and `lib/answers.ts`.
+- `/refer` has a print layout ("Print a one-page referral sheet") built from the clinic's contact details.

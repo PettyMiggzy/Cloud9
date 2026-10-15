@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Inter, Manrope } from "next/font/google"
 import { Splash } from "@/components/splash"
+import { AskCloud9 } from "@/components/ask-cloud9"
 import { MobileDock } from "@/components/mobile-dock"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
@@ -114,6 +115,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </main>
         <SiteFooter />
         <MobileDock />
+        <AskCloud9 />
       </body>
     </html>
   )

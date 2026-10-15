@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { ReviewButton } from "@/components/review-button"
 import { Logo } from "@/components/logo"
 import { clinic, nav, patientTools, services } from "@/lib/content"
 
@@ -85,6 +86,9 @@ export function SiteFooter() {
             ))}
           </ul>
         </div>
+      </div>
+      <div className="mx-auto max-w-[1200px] px-5 pb-6 sm:px-8">
+        <ReviewButton className="h-10 rounded-full px-4" />
       </div>
       <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
         <iframe

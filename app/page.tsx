@@ -5,6 +5,7 @@ import { HomeCta } from "@/components/home-cta"
 import { HomeFees } from "@/components/home-fees"
 import { HomeFeatures } from "@/components/home-features"
 import { HomeHero } from "@/components/home-hero"
+import { HomeInsurance } from "@/components/home-insurance"
 import { HomeHour } from "@/components/home-hour"
 import { HomeCareRail } from "@/components/home-care-rail"
 import { HomeTeam } from "@/components/home-team"
@@ -33,6 +34,7 @@ export default function HomePage() {
       <HomeAbout />
       <HomeTeam />
       <HomeFees />
+      <HomeInsurance />
       <HomeTestimonials />
       <section className="border-y border-border bg-white py-16 md:py-32">
         <div className="mx-auto max-w-[1200px] px-5 sm:px-8">

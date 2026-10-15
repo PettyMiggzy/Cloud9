@@ -17,6 +17,12 @@ export const clinic = {
   ],
 }
 
+/**
+ * The clinic's Google "write a review" link (Business Profile > Ask for reviews > Share review form).
+ * Leave empty until the clinic supplies it. The review buttons stay hidden while this is empty.
+ */
+export const reviewUrl = ""
+
 export const nav = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },

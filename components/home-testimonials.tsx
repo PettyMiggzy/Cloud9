@@ -1,3 +1,4 @@
+import { ReviewButton } from "@/components/review-button"
 import { reviews } from "@/lib/content"
 
 function Card({ review }: { review: (typeof reviews)[number] }) {
@@ -20,6 +21,7 @@ export function HomeTestimonials() {
         <h2 className="mt-4 text-[2.25rem] leading-[1.05] font-semibold tracking-tight text-balance text-[#14324f] sm:text-6xl">
           In their words, as written.
         </h2>
+        <ReviewButton className="mt-6 h-11 rounded-full px-5" />
       </div>
       <div className="marquee mt-12 overflow-hidden">
         <ul className="marquee-track flex w-max gap-5 px-5">

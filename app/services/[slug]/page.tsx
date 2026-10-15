@@ -15,7 +15,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const service = getService(slug)
   if (!service) return { title: "Care" }
-  return { title: service.name, description: service.short }
+  return {
+    title: `${service.name} in Indianapolis`,
+    description: `${service.short} One-to-one physical therapy at Cloud 9 on Thompson Road, Indianapolis. No referral needed.`,
+    alternates: { canonical: `/services/${service.slug}` },
+  }
 }
 
 export default async function ServicePage({ params }: Props) {
@@ -25,8 +29,30 @@ export default async function ServicePage({ params }: Props) {
 
   const others = services.filter((item) => item.slug !== service.slug).slice(0, 3)
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "MedicalTherapy",
+    name: service.name,
+    description: service.lead,
+    provider: {
+      "@type": "Physiotherapy",
+      name: "Cloud 9 Physical Therapy",
+      url: "https://cloud9physicaltherapy.com",
+      telephone: "(317) 734-3430",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "5370 E. Thompson Rd, Ste. G",
+        addressLocality: "Indianapolis",
+        addressRegion: "IN",
+        postalCode: "46237",
+        addressCountry: "US",
+      },
+    },
+  }
+
   return (
     <article className="mx-auto max-w-6xl px-5 py-24 sm:px-8 md:py-32">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <p className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">
         <Link href="/services" className="hover:underline">
           Care
