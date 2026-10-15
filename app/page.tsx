@@ -1,4 +1,5 @@
 import { FaqList } from "@/components/faq-list"
+import { faqs } from "@/lib/content"
 import { HomeAbout } from "@/components/home-about"
 import { HomeCta } from "@/components/home-cta"
 import { HomeFees } from "@/components/home-fees"
@@ -11,9 +12,20 @@ import { HomeTestimonials } from "@/components/home-testimonials"
 import { PartnerRail } from "@/components/partner-rail"
 import { Reveal } from "@/components/reveal"
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+}
+
 export default function HomePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <HomeHero />
       <HomeFeatures />
       <HomeHour />

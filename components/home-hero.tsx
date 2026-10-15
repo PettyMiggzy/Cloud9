@@ -56,9 +56,9 @@ export function HomeHero() {
         <div className="relative order-first mx-auto w-full max-w-[17rem] sm:max-w-[26rem] lg:order-last lg:max-w-[34rem]">
           <MotionImage
             src="/images/art-cloud.webp"
-            alt="Paper-craft sculpture of a navy cloud above blue waves, made for this site"
-            width={1400}
-            height={878}
+            alt="Soft white cloud with a ribbon of blue wave, made for this site"
+            width={1100}
+            height={1232}
             priority
             sizes="(min-width: 1024px) 520px, 90vw"
             className="h-auto w-full"

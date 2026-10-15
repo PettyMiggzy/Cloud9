@@ -31,7 +31,14 @@ export const metadata: Metadata = {
     siteName: "Cloud 9 Physical Therapy",
     locale: "en_US",
     type: "website",
-    images: ["/images/clinic/services.jpg"],
+    images: [{ url: "/images/og.jpg", width: 1200, height: 630, alt: "Cloud 9 Physical Therapy. The whole hour is yours." }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cloud 9 Physical Therapy · Indianapolis",
+    description:
+      "One clinician stays with you for every minute. Thompson Road, Indianapolis. No referral needed.",
+    images: ["/images/og.jpg"],
   },
 }
 
