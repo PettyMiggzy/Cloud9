@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { team, values } from "@/lib/content"
+import { clinic, team, values } from "@/lib/content"
 
 export const metadata: Metadata = {
   title: "The team",
@@ -52,7 +52,12 @@ export default function AboutPage() {
       <h2 className="mt-16 font-heading text-4xl">The team</h2>
       <ul className="mt-8 space-y-12">
         {team.map((person, index) => (
-          <li key={person.name} className="grid items-center gap-6 md:grid-cols-[220px_1fr]">
+          <li
+            id={person.image.split("/").pop()?.replace(".jpg", "")}
+            key={person.name}
+            className="lift-in scroll-mt-28 grid items-center gap-6 md:grid-cols-[220px_1fr]"
+            style={{ animationDelay: `${index * 90}ms` }}
+          >
             <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
               <Image
                 src={person.image}
@@ -77,9 +82,17 @@ export default function AboutPage() {
         <p className="mt-3 max-w-xl text-white/80">
           The first visit is an hour. Bring the story of what stopped working, and clothes that can be moved out of the way.
         </p>
-        <Button variant="secondary" className="mt-6 h-11 px-5" render={<Link href="/book" />}>
-          Book a visit
-        </Button>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <Button variant="secondary" className="h-11 px-5" render={<Link href="/book" />}>
+            Book a visit
+          </Button>
+          <Button variant="outline" className="h-11 px-5" render={<a href={clinic.phoneHref} />}>
+            Call {clinic.phone}
+          </Button>
+          <Link href="/first-visit" className="text-sm font-medium underline-offset-4 hover:underline">
+            What the first visit is like
+          </Link>
+        </div>
       </div>
     </div>
   )

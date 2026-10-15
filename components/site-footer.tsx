@@ -1,9 +1,9 @@
 import Link from "next/link"
-import { clinic, nav } from "@/lib/content"
+import { clinic, nav, patientTools } from "@/lib/content"
 
 export function SiteFooter() {
   return (
-    <footer className="bg-deep text-white">
+    <footer className="bg-deep pb-24 text-white md:pb-0">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2 lg:col-span-1">
           <p className="font-heading text-2xl">Cloud 9</p>
@@ -26,6 +26,16 @@ export function SiteFooter() {
                 Book a visit
               </Link>
             </li>
+          </ul>
+          <p className="mt-6 text-xs font-semibold tracking-[0.16em] text-white/60 uppercase">For patients</p>
+          <ul className="mt-3 space-y-2 text-sm">
+            {patientTools.map((tool) => (
+              <li key={tool.href}>
+                <Link href={tool.href} className="hover:underline">
+                  {tool.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div>

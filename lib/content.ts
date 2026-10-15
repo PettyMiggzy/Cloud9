@@ -24,6 +24,46 @@ export const nav = [
   { href: "/visit", label: "Visit" },
 ]
 
+export const patientTools = [
+  {
+    href: "/start",
+    label: "Where to start",
+    detail: "Two questions that point to a service. Not a diagnosis.",
+  },
+  {
+    href: "/first-visit",
+    label: "First visit",
+    detail: "What to wear, how the hour goes, and what it costs.",
+  },
+  {
+    href: "/insurance",
+    label: "Insurance check",
+    detail: "Ask the clinic to look at Medicare or a private plan.",
+  },
+  {
+    href: "/refer",
+    label: "Refer a patient",
+    detail: "A note for a physician’s office. Patients can come without one.",
+  },
+  {
+    href: "/southside",
+    label: "South side",
+    detail: "The Thompson Road clinic: hours, map, and services.",
+  },
+] as const
+
+export const fees = {
+  evaluation: { label: "60-minute one-to-one evaluation", amount: "$160" },
+  treatment: { label: "55-minute one-to-one treatment", amount: "$120" },
+  packages: [
+    { label: "6 sessions", amount: "$660" },
+    { label: "12 sessions", amount: "$1,220" },
+    { label: "18 sessions", amount: "$1,680" },
+  ],
+  medicareNote: "Those self-pay fees do not apply to Medicare beneficiaries.",
+  cancellationNote: "There is no cancellation fee. A day’s notice is appreciated.",
+}
+
 export const values = [
   "Trust",
   "Excellence",

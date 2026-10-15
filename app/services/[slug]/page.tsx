@@ -3,7 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { getService, services } from "@/lib/content"
+import { clinic, getService, services } from "@/lib/content"
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -34,7 +34,7 @@ export default async function ServicePage({ params }: Props) {
       </p>
       <div className="mt-4 grid items-start gap-10 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
-          <h1 className="font-heading text-5xl leading-tight">{service.name}</h1>
+          <h1 className="font-heading text-4xl leading-tight text-balance sm:text-5xl">{service.name}</h1>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{service.lead}</p>
           <h2 className="mt-8 font-heading text-2xl">Who it is for</h2>
           <ul className="mt-3 space-y-2">
@@ -56,6 +56,20 @@ export default async function ServicePage({ params }: Props) {
               Fees and hours
             </Button>
           </div>
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+            <Link href={`/insurance?service=${service.slug}`} className="font-medium text-primary hover:underline">
+              Check insurance for this visit
+            </Link>
+            {" · "}
+            <Link href="/start" className="font-medium text-primary hover:underline">
+              Not sure this is the one?
+            </Link>
+            {" · "}
+            <a href={clinic.phoneHref} className="font-medium text-primary hover:underline">
+              Call {clinic.phone}
+            </a>
+            . The evaluation decides the plan.
+          </p>
         </div>
         <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] lg:sticky lg:top-28">
           <Image src={service.image} alt={service.imageAlt} fill className="object-cover" sizes="(min-width: 1024px) 40vw, 100vw" priority />

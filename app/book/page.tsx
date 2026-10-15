@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import { BookingWizard } from "@/components/booking-wizard"
 import { clinic, services } from "@/lib/content"
 
@@ -23,6 +24,16 @@ export default async function BookPage({ searchParams }: Props) {
         </p>
         <p className="mt-6 text-sm text-muted-foreground">
           Closed Sunday. Saturday requests should land between 8:00 am and 1:00 pm so the visit finishes before 2:00.
+        </p>
+        <p className="mt-4 text-sm text-muted-foreground">
+          <Link href="/start" className="font-medium text-primary hover:underline">
+            Not sure which service?
+          </Link>{" "}
+          Or ask them to{" "}
+          <Link href="/insurance" className="font-medium text-primary hover:underline">
+            check a plan
+          </Link>
+          . Neither one holds a time.
         </p>
       </div>
       <BookingWizard initialService={initial} />

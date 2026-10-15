@@ -130,6 +130,7 @@
   }
   html {
     @apply font-sans;
+    scroll-padding-top: 7.5rem;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-fraunces), Georgia, serif;
@@ -138,4 +139,79 @@
 
 ::selection {
   background: oklch(0.86 0.05 200);
+}
+
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes kenburns {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+@keyframes stage-in {
+  from { opacity: 0; transform: scale(1.04); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes rail {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes fillbar {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.page-enter {
+  animation: page-in 0.45s ease;
+}
+
+.kenburns {
+  animation: kenburns 22s ease-out both;
+}
+
+.stage-photo {
+  animation: stage-in 0.45s ease;
+}
+
+.marquee-track {
+  animation: rail 36s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.review-bar {
+  width: 100%;
+  transform-origin: left;
+  animation: fillbar 7s linear;
+}
+
+.review-bar.is-paused {
+  animation-play-state: paused;
+}
+
+@keyframes lift-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+.lift-in {
+  animation: lift-in 0.7s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter,
+  .kenburns,
+  .stage-photo,
+  .marquee-track,
+  .review-bar,
+  .lift-in {
+    animation: none;
+  }
 }

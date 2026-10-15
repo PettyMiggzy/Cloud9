@@ -354,7 +354,7 @@ export function BookingWizard({ initialService = "" }: { initialService?: string
 
       <div className="mt-8 flex flex-col-reverse gap-3 sm:flex-row sm:justify-between">
         {step === 0 ? (
-          <Button variant="ghost" render={<Link href="/services" />}>
+          <Button variant="ghost" render={<Link href="/start" />}>
             Not sure yet
           </Button>
         ) : (

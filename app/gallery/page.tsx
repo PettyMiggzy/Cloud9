@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { GalleryGrid } from "@/components/gallery-grid"
+import { NextStep } from "@/components/next-step"
 
 export const metadata: Metadata = {
   title: "The clinic",
@@ -17,6 +18,7 @@ export default function GalleryPage() {
       <div className="mt-10">
         <GalleryGrid />
       </div>
+      <NextStep title="See it in person." body="The photographs are the clinic’s own. Book a visit, call, or start with two questions if you are matching a service." />
     </div>
   )
 }

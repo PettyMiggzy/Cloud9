@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
+import { NextStep } from "@/components/next-step"
 import { services } from "@/lib/content"
 
 export const metadata: Metadata = {
@@ -12,14 +13,18 @@ export default function ServicesPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
       <p className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">Care</p>
-      <h1 className="mt-3 max-w-3xl font-heading text-5xl leading-tight">What they treat, and how a visit is shaped.</h1>
+      <h1 className="mt-3 max-w-3xl font-heading text-4xl leading-tight text-balance sm:text-5xl">What they treat, and how a visit is shaped.</h1>
       <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-        Every plan is built for one person. These are the problems the clinic sees most, and the way each one is approached.
+        Every plan is built for one person. These are the problems the clinic sees most, and the way each one is approached. If you are not sure which one,{" "}
+        <Link href="/start" className="font-medium text-primary hover:underline">
+          answer two questions
+        </Link>
+        . That match is a starting point, not a diagnosis.
       </p>
       <ul className="mt-10 grid gap-5 sm:grid-cols-2">
         {services.map((service) => (
           <li key={service.slug}>
-            <Link href={`/services/${service.slug}`} className="group block overflow-hidden rounded-2xl border border-border bg-card">
+            <Link href={`/services/${service.slug}`} className="group block overflow-hidden rounded-2xl border border-border bg-card transition duration-300 hover:-translate-y-1 hover:shadow-lg">
               <div className="relative aspect-[16/9]">
                 <Image
                   src={service.image}
@@ -37,6 +42,7 @@ export default function ServicesPage() {
           </li>
         ))}
       </ul>
+      <NextStep />
     </div>
   )
 }
