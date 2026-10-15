@@ -1,0 +1,30 @@
+---
+description: Indexed UI references for shadcn, Magic UI, and React Bits
+alwaysApply: true
+---
+
+# UI library index
+
+Before writing a new interface, search these local indexes, then open the matching doc page and follow that component’s API. Do not invent a lookalike.
+
+- shadcn/ui: `.cursor/docs/ui/shadcn.llms.txt` — docs at https://ui.shadcn.com (https://shadcn.com). Full component list, CLI, theming, forms.
+- Magic UI: `.cursor/docs/ui/magicui.llms.txt` — https://magicui.design. Landing-page components on React, Tailwind, and Motion.
+- React Bits: `.cursor/docs/ui/reactbits.llms.txt` — https://reactbits.dev. Components, animations, backgrounds, text animations, and micro interactions. Four variants each. Use TypeScript + Tailwind (`-TS-TW`).
+
+## How to install in this repo
+
+This app is Next.js App Router, Tailwind v4, and shadcn `base-nova` (`components.json`). Primitives already live in `components/ui/`.
+
+- Add a shadcn component with `npx shadcn@latest add <name>`.
+- Add a React Bits piece with `npx shadcn@latest add https://reactbits.dev/r/<Name>-TS-TW`.
+- Magic UI components are copied from their doc page into `components/ui/` and restyled to this theme.
+- This repo imports `cn` from the `cn` package, not `@/lib/utils`. Button polymorphism uses `render={<Link />}`, not `asChild`. Match the existing files.
+- Install only the dependencies that component’s doc lists. Do not add three.js, GSAP, or a shader background unless that component is the one being added.
+
+## What to reach for
+
+- Structure, forms, dialogs, menus, cards, tables: shadcn.
+- A quiet landing layout: Magic UI bento, marquee, or blur fade, recolored to Cloud 9 tokens.
+- One deliberate motion: the matching React Bits or Magic UI component, as a leaf client component.
+
+Skip gradient text, neon cards, particle fields, custom cursors, and full-page WebGL backgrounds on this clinic site unless the user asks for that effect. Recolor anything you add to `#FAFBFC`, `#1E293B`, `#475569`, `#0F4C5C`, `#E8F4F8`, `#174E86`, and `#2E96CC`. Honor `prefers-reduced-motion`.
