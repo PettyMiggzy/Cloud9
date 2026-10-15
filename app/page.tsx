@@ -8,206 +8,169 @@ import { Button } from "@/components/ui/button"
 import { NextStep } from "@/components/next-step"
 import { clinic, faqs, patientTools, team, values } from "@/lib/content"
 
-const wall = [...values, "Movement is medicine"]
-
 export default function HomePage() {
+  const [lead, ...rest] = team
+
   return (
     <>
-      <section className="grid min-h-[calc(100svh-7.5rem)] lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="flex flex-col justify-between bg-deep px-5 py-10 text-white sm:px-10 lg:px-12 lg:py-14">
-          <p className="text-sm text-white/75">Suite G · Thompson Road</p>
-          <div className="mt-10">
-            <p className="font-heading text-sm tracking-[0.22em] text-[var(--sun)] uppercase">South side Indianapolis</p>
-            <h1 className="mt-4 max-w-xl font-heading text-6xl leading-[0.88] text-balance sm:text-7xl lg:text-8xl">
-              The hour belongs to you.
-            </h1>
-            <p className="mt-6 max-w-md text-lg leading-relaxed text-white/80">
-              One clinician stays for the whole session. Dr. Sakshi Nandal — patients call her Dr. Skye — and the team around her. No referral required. Medicare and most private plans. Saturday is open.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button className="h-12 bg-white px-6 text-base text-deep hover:bg-white/90" render={<Link href="/book" />}>
-                Book a visit
-              </Button>
-              <Button
-                variant="outline"
-                className="h-12 border-white/35 bg-transparent px-6 text-base text-white hover:bg-white/10 hover:text-white"
-                render={<a href={clinic.phoneHref} />}
-              >
-                Call {clinic.phone}
-              </Button>
-            </div>
-          </div>
-          <dl className="mt-12 grid gap-6 border-t border-white/15 pt-6 text-sm sm:grid-cols-3">
-            <div>
-              <dt className="text-white/55">Sessions</dt>
-              <dd className="mt-1 font-medium">One clinician, the whole time</dd>
-            </div>
-            <div>
-              <dt className="text-white/55">First change</dt>
-              <dd className="mt-1 font-medium">Often within two weeks</dd>
-            </div>
-            <div>
-              <dt className="text-white/55">Saturday</dt>
-              <dd className="mt-1 font-medium">8:00 am – 2:00 pm</dd>
-            </div>
-          </dl>
-        </div>
-        <div className="relative min-h-[70vw] lg:min-h-0">
-          <Image
-            src="/images/clinic/gym.jpg"
-            alt="The Cloud 9 gym, with the clinic values painted on the wall"
-            fill
-            priority
-            sizes="(min-width: 1024px) 48vw, 100vw"
-            className="object-cover"
-          />
-          <div className="absolute right-4 bottom-4 left-4 flex items-end justify-between gap-4 bg-deep/85 p-4 text-white backdrop-blur-sm sm:right-auto sm:max-w-sm">
-            <Image
-              src="/images/team/sakshi.jpg"
-              alt="Dr. Sakshi Nandal"
-              width={64}
-              height={80}
-              className="h-16 w-14 object-cover object-top"
-            />
-            <p className="text-sm leading-snug">
-              <span className="font-heading text-lg">Dr. Sakshi Nandal</span>
-              <span className="mt-0.5 block text-white/70">Clinical director. Patients call her Dr. Skye.</span>
-            </p>
+      <section className="relative min-h-[92svh] bg-black text-white">
+        <Image
+          src="/images/clinic/gym.jpg"
+          alt="The Cloud 9 gym, with exercise balls, parallel bars, and the values painted on the wall"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[72%_center]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/45 to-transparent" />
+        <div className="relative flex min-h-[92svh] flex-col justify-end px-4 pt-28 pb-8 sm:px-8 lg:px-12 lg:pb-12">
+          <p className="font-heading text-sm tracking-[0.28em] text-[var(--sun)] uppercase">5370-G · Thompson Road</p>
+          <h1 className="mt-4 max-w-5xl font-heading text-6xl leading-[0.82] sm:text-8xl lg:text-[8.5rem]">
+            The hour
+            <br />
+            belongs
+            <br />
+            <span className="bg-[var(--sun)] px-2 text-black">to you.</span>
+          </h1>
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-white/85">
+            One clinician for the whole session. Dr. Sakshi Nandal — patients call her Dr. Skye. No referral. Medicare and most private plans. Open Saturday.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button className="h-12 bg-[var(--sun)] px-6 text-base text-black hover:bg-white" render={<Link href="/book" />}>
+              Book a visit
+            </Button>
+            <Button
+              variant="outline"
+              className="h-12 border-white/50 bg-transparent px-6 text-base text-white hover:bg-white hover:text-black"
+              render={<a href={clinic.phoneHref} />}
+            >
+              Call {clinic.phone}
+            </Button>
           </div>
         </div>
       </section>
 
-      <div className="marquee overflow-hidden border-y border-foreground/10 bg-[var(--sun)] text-deep">
-        <div className="marquee-track flex w-max py-3">
-          {[0, 1].map((copy) => (
-            <p key={copy} className="flex items-center" aria-hidden={copy === 1 || undefined}>
-              {wall.map((word) => (
-                <span key={`${copy}-${word}`} className="px-4 font-heading text-2xl tracking-tight uppercase sm:text-3xl">
-                  {word}
-                  <span className="px-4 text-deep/40">/</span>
-                </span>
-              ))}
-            </p>
-          ))}
-        </div>
-      </div>
-
-      <section className="mx-auto grid max-w-6xl md:grid-cols-3">
+      <section className="grid bg-[var(--sun)] text-black sm:grid-cols-2 lg:grid-cols-4">
         {[
-          ["01", "No referral", "Indiana is a direct-access state. You can start physical therapy without a prescription."],
-          ["02", "The fee, up front", "A 60-minute evaluation is $160. A 55-minute treatment is $120. Medicare is different, and they will check your plan."],
-          ["03", "Hands, not a hallway", "Manual therapy, dry needling, and exercise happen with someone who stays."],
-        ].map(([index, title, copy]) => (
-          <div key={title} className="border-b border-border px-5 py-10 md:border-r md:border-b-0 md:px-8 md:last:border-r-0">
-            <p className="font-heading text-sm text-primary">{index}</p>
-            <h2 className="mt-3 font-heading text-3xl">{title}</h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{copy}</p>
+          ["$160", "Self-pay evaluation, 60 min"],
+          ["$120", "Self-pay treatment, 55 min"],
+          ["No referral", "Indiana direct access"],
+          ["Sat 8–2", "Last start at 1:00 pm"],
+        ].map(([figure, label]) => (
+          <div key={label} className="border-black/15 px-5 py-6 sm:border-r sm:last:border-r-0">
+            <p className="font-heading text-4xl leading-none sm:text-5xl">{figure}</p>
+            <p className="mt-2 text-sm">{label}</p>
           </div>
         ))}
       </section>
 
-      <section className="bg-foam">
-        <div className="mx-auto grid max-w-6xl gap-px bg-border md:grid-cols-3">
-          {patientTools.slice(0, 3).map((tool, index) => (
-            <Link key={tool.href} href={tool.href} className="group bg-foam px-5 py-10 transition-colors hover:bg-white sm:px-8">
-              <p className="font-heading text-sm text-primary">{String(index + 1).padStart(2, "0")}</p>
-              <h2 className="mt-3 font-heading text-4xl leading-none group-hover:text-primary">{tool.label}</h2>
-              <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">{tool.detail}</p>
-            </Link>
+      <section className="grid bg-white lg:grid-cols-[auto_1.1fr_0.9fr]">
+        <p className="hidden items-center px-6 font-heading text-sm tracking-[0.45em] text-foreground/50 uppercase [writing-mode:vertical-rl] lg:flex">
+          Our values
+        </p>
+        <ul className="px-4 py-12 sm:px-8 lg:py-16">
+          <li className="mb-6 font-heading text-sm tracking-[0.45em] text-foreground/50 uppercase lg:hidden">Our values</li>
+          {values.map((value) => (
+            <li key={value} className="font-heading text-5xl leading-[0.9] tracking-tight uppercase sm:text-7xl">
+              {value}
+            </li>
           ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 py-16 lg:py-24">
-        <div className="flex items-end justify-between gap-6">
-          <h2 className="max-w-xl font-heading text-5xl leading-[0.95] sm:text-6xl">Ten reasons people walk in.</h2>
-          <Link href="/services" className="hidden text-sm font-medium text-primary sm:inline">
-            All services
-          </Link>
-        </div>
-        <div className="mt-10">
-          <ServiceExplorer />
-        </div>
-      </section>
-
-      <section className="relative min-h-[32rem] bg-deep text-white">
-        <Image
-          src="/images/clinic/about-room.jpg"
-          alt="The front of Cloud 9, with the door marked 5370-G"
-          fill
-          sizes="100vw"
-          className="object-cover opacity-45"
-        />
-        <div className="relative mx-auto flex min-h-[32rem] max-w-6xl flex-col justify-end px-4 py-14">
-          <p className="font-heading text-sm tracking-[0.22em] text-[var(--sun)] uppercase">On the wall</p>
-          <h2 className="mt-3 max-w-3xl font-heading text-6xl leading-[0.9] sm:text-7xl">Movement is medicine.</h2>
-          <p className="mt-5 max-w-lg text-white/85">
-            Parallel bars, bikes, and treatment tables share one floor. The values are painted where you can see them.
-          </p>
-          <Button variant="secondary" className="mt-8 h-11 w-fit px-5" render={<Link href="/gallery" />}>
-            Look around the clinic
-          </Button>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 py-16">
-        <div className="flex items-end justify-between gap-4">
-          <h2 className="font-heading text-5xl leading-none">Who you will actually see.</h2>
-          <Link href="/about" className="text-sm font-medium text-primary">
-            The whole team
-          </Link>
-        </div>
-        <ul className="mt-8 flex gap-3 overflow-x-auto pb-2">
-          {team.map((person) => {
-            const id = person.image.split("/").pop()?.replace(".jpg", "")
-            return (
-              <li key={person.name} className="w-64 shrink-0 sm:w-72">
-                <Link href={`/about#${id}`} className="group block">
-                  <div className="relative aspect-[3/4] overflow-hidden bg-muted">
-                    <Image
-                      src={person.image}
-                      alt={person.name}
-                      fill
-                      className="object-cover object-top transition duration-700 group-hover:scale-105"
-                      sizes="280px"
-                    />
-                  </div>
-                  <h3 className="mt-3 font-heading text-2xl">{person.name}</h3>
-                  <p className="text-sm text-muted-foreground">{person.role}</p>
-                </Link>
-              </li>
-            )
-          })}
+          <li className="mt-6 max-w-sm text-base leading-relaxed text-muted-foreground">
+            Painted on the gym wall, where you can read them from the floor. Under the list: movement is medicine.
+          </li>
         </ul>
-      </section>
-
-      <section className="bg-deep py-16 text-white">
-        <div className="mx-auto max-w-6xl px-4">
-          <h2 className="font-heading text-5xl">In their words.</h2>
-          <p className="mt-2 max-w-xl text-white/70">Five notes patients left on Google. Quoted as written.</p>
-          <div className="mt-8">
-            <ReviewReel />
-          </div>
+        <div className="relative min-h-80">
+          <Image
+            src="/images/clinic/gym.jpg"
+            alt="The values painted on the Cloud 9 gym wall"
+            fill
+            sizes="(min-width: 1024px) 36vw, 100vw"
+            className="object-cover object-left"
+          />
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16">
+      <section className="border-t border-black px-4 py-16 sm:px-8 lg:px-12 lg:py-24">
+        <div className="mb-8 flex items-end justify-between gap-6">
+          <h2 className="max-w-xl font-heading text-5xl leading-[0.9] sm:text-7xl">Ten reasons people walk in.</h2>
+          <Link href="/services" className="hidden shrink-0 text-sm font-medium underline decoration-[var(--sun)] decoration-4 underline-offset-4 sm:inline">
+            All of them
+          </Link>
+        </div>
+        <ServiceExplorer />
+      </section>
+
+      <section className="bg-deep px-4 py-16 text-white sm:px-8 lg:px-12">
+        <div className="flex items-end justify-between gap-4">
+          <h2 className="font-heading text-5xl leading-[0.9] sm:text-7xl">The people in the room.</h2>
+          <Link href="/about" className="text-sm font-medium text-[var(--sun)]">
+            Full bios
+          </Link>
+        </div>
+        <div className="mt-8 grid gap-3 lg:grid-cols-12">
+          <Link href={`/about#${lead.image.split("/").pop()?.replace(".jpg", "")}`} className="group relative min-h-[32rem] overflow-hidden lg:col-span-7">
+            <Image src={lead.image} alt={lead.name} fill className="object-cover object-top transition duration-700 group-hover:scale-105" sizes="(min-width: 1024px) 55vw, 100vw" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-6">
+              <p className="font-heading text-sm tracking-[0.2em] text-[var(--sun)] uppercase">Clinical director</p>
+              <h3 className="mt-2 font-heading text-5xl leading-none">{lead.name}</h3>
+              <p className="mt-2 max-w-md text-sm text-white/80">Patients call her Dr. Skye. Manual therapy and dry needling, twelve years in.</p>
+            </div>
+          </Link>
+          <ul className="grid grid-cols-2 gap-3 lg:col-span-5">
+            {rest.map((person) => {
+              const id = person.image.split("/").pop()?.replace(".jpg", "")
+              return (
+                <li key={person.name}>
+                  <Link href={`/about#${id}`} className="group block">
+                    <div className="relative aspect-[3/4] overflow-hidden bg-black">
+                      <Image src={person.image} alt={person.name} fill className="object-cover object-top transition duration-700 group-hover:scale-105" sizes="240px" />
+                    </div>
+                    <h3 className="mt-2 font-heading text-xl leading-tight">{person.name}</h3>
+                    <p className="text-xs text-white/60">{person.role}</p>
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+      </section>
+
+      <section className="bg-black px-4 py-16 text-white sm:px-8 lg:px-12">
+        <h2 className="font-heading text-5xl leading-none sm:text-7xl">In their words.</h2>
+        <p className="mt-3 max-w-md text-white/60">Five Google reviews, quoted as written. It moves, and it waits while you read.</p>
+        <div className="mt-8">
+          <ReviewReel />
+        </div>
+      </section>
+
+      <section className="grid border-b border-black md:grid-cols-3">
+        {patientTools.slice(0, 3).map((tool, index) => (
+          <Link key={tool.href} href={tool.href} className="group border-black px-5 py-12 hover:bg-[var(--sun)] md:border-r md:last:border-r-0">
+            <p className="font-heading text-sm">{String(index + 1).padStart(2, "0")}</p>
+            <h2 className="mt-4 font-heading text-4xl leading-none sm:text-5xl">{tool.label}</h2>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground group-hover:text-black">{tool.detail}</p>
+          </Link>
+        ))}
+      </section>
+
+      <section className="px-4 py-16 sm:px-8 lg:px-12">
         <h2 className="font-heading text-4xl">Neighbors they show up for.</h2>
         <div className="mt-8">
           <PartnerRail />
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-4 pb-16">
-        <h2 className="font-heading text-4xl">Before you come in.</h2>
+      <section className="mx-auto max-w-3xl px-4 pb-8">
+        <h2 className="font-heading text-5xl leading-none">Before you come in.</h2>
         <div className="mt-6">
           <FaqList items={faqs.slice(0, 4)} />
         </div>
-        <Link href="/visit" className="mt-4 inline-flex text-sm font-medium text-primary">
-          Hours, fees, and the rest of the questions
+        <Link href="/visit" className="mt-4 inline-flex text-sm font-medium underline decoration-[var(--sun)] decoration-4 underline-offset-4">
+          Hours, fees, and the map
         </Link>
       </section>
-      <div className="mx-auto max-w-6xl px-4 pb-16">
+      <div className="px-4 pb-16 sm:px-8 lg:px-12">
         <NextStep />
       </div>
     </>

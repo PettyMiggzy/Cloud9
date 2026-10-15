@@ -30,7 +30,7 @@ export function PatientToolLinks({ onNavigate, className }: { onNavigate?: () =>
   )
 }
 
-export function PatientsMenu() {
+export function PatientsMenu({ className }: { className?: string }) {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const rootRef = useRef<HTMLDivElement>(null)
@@ -65,7 +65,8 @@ export function PatientsMenu() {
         onClick={() => setOpen((value) => !value)}
         className={cn(
           "inline-flex items-center gap-1 text-sm font-medium",
-          active || open ? "text-primary" : "text-foreground/80 hover:text-primary"
+          active || open ? "text-[var(--sun)]" : "text-current/80 hover:text-[var(--sun)]",
+          className
         )}
       >
         Patients

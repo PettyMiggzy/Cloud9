@@ -19,10 +19,10 @@ export function OpenNow({ className, tone = "default" }: { className?: string; t
         <span
           className={cn(
             "absolute inline-flex size-full rounded-full opacity-60 motion-safe:animate-ping",
-            status.open ? "bg-emerald-500" : "bg-foreground/40"
+            status.open ? "bg-emerald-400" : tone === "inverse" ? "bg-white/70" : "bg-foreground/40"
           )}
         />
-        <span className={cn("relative inline-flex size-2 rounded-full", status.open ? "bg-emerald-500" : "bg-foreground/40")} />
+        <span className={cn("relative inline-flex size-2 rounded-full", status.open ? "bg-emerald-400" : tone === "inverse" ? "bg-white/70" : "bg-foreground/40")} />
       </span>
       <span>{status.label}</span>
       <span className={tone === "inverse" ? "hidden text-white/75 sm:inline" : "hidden text-muted-foreground sm:inline"}>

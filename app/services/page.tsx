@@ -21,23 +21,18 @@ export default function ServicesPage() {
         </Link>
         . That match is a starting point, not a diagnosis.
       </p>
-      <ul className="mt-10 grid gap-5 sm:grid-cols-2">
-        {services.map((service) => (
-          <li key={service.slug}>
-            <Link href={`/services/${service.slug}`} className="group block overflow-hidden rounded-2xl border border-border bg-card transition duration-300 hover:-translate-y-1 hover:shadow-lg">
-              <div className="relative aspect-[16/9]">
-                <Image
-                  src={service.image}
-                  alt={service.imageAlt}
-                  fill
-                  className="object-cover transition duration-500 group-hover:scale-[1.03]"
-                  sizes="(min-width: 640px) 50vw, 100vw"
-                />
-              </div>
-              <div className="p-5">
-                <h2 className="font-heading text-2xl group-hover:text-primary">{service.name}</h2>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{service.short}</p>
-              </div>
+      <ul className="mt-12 border-y border-black">
+        {services.map((service, index) => (
+          <li key={service.slug} className="border-b border-black last:border-b-0">
+            <Link href={`/services/${service.slug}`} className="group grid gap-4 py-6 sm:grid-cols-[4rem_1fr_14rem] sm:items-center">
+              <span className="font-heading text-2xl text-primary">{String(index + 1).padStart(2, "0")}</span>
+              <span>
+                <h2 className="font-heading text-3xl leading-none group-hover:bg-[var(--sun)] sm:text-5xl">{service.name}</h2>
+                <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">{service.short}</p>
+              </span>
+              <span className="relative hidden h-24 overflow-hidden sm:block">
+                <Image src={service.image} alt="" fill className="object-cover" sizes="220px" />
+              </span>
             </Link>
           </li>
         ))}

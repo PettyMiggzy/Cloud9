@@ -15,7 +15,7 @@ export function MobileDock() {
         <Button variant="outline" className="h-11" render={<a href={clinic.phoneHref} />}>
           Call
         </Button>
-        <Button className="h-11" render={<Link href="/book" />}>
+        <Button className="h-11 bg-[var(--sun)] text-black hover:bg-[var(--sun)]/90" render={<Link href="/book" />}>
           Book a visit
         </Button>
       </div>

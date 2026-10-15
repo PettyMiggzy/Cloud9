@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/dialog"
 import { cn } from "cn"
 
-function NavLinks({ onNavigate, className }: { onNavigate?: () => void; className?: string }) {
+function NavLinks({ onNavigate, className, light = false }: { onNavigate?: () => void; className?: string; light?: boolean }) {
   const pathname = usePathname()
   return (
     <nav className={className}>
@@ -33,7 +33,13 @@ function NavLinks({ onNavigate, className }: { onNavigate?: () => void; classNam
             aria-current={active ? "page" : undefined}
             className={cn(
               "text-sm font-medium tracking-wide",
-              active ? "text-primary" : "text-foreground/80 hover:text-primary"
+              light
+                ? active
+                  ? "text-primary"
+                  : "text-foreground hover:text-primary"
+                : active
+                  ? "text-[var(--sun)]"
+                  : "text-white/80 hover:text-white"
             )}
           >
             {item.label}
@@ -57,8 +63,8 @@ export function SiteHeader() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/80 bg-background/95 backdrop-blur-md">
-      <div className={cn("overflow-hidden bg-deep text-white transition-all duration-300", scrolled ? "max-h-0" : "max-h-12")}>
+    <header className="sticky top-0 z-40 bg-deep text-white">
+      <div className={cn("overflow-hidden bg-black text-white transition-all duration-300", scrolled ? "max-h-0" : "max-h-12")}>
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2 text-xs sm:text-sm">
           <p className="truncate">{clinic.address}</p>
           <OpenNow tone="inverse" className="shrink-0 text-white" />
@@ -80,11 +86,11 @@ export function SiteHeader() {
         </Link>
         <NavLinks className="hidden items-center gap-5 lg:flex xl:gap-7" />
         <div className="flex items-center gap-3">
-          <PatientsMenu />
+          <PatientsMenu className="text-white" />
           <OpenNow className={cn("shrink-0", scrolled ? "inline-flex" : "hidden")} />
           <Button
             render={<Link href="/book" />}
-            className="hidden h-10 px-4 md:inline-flex"
+            className="hidden h-10 bg-[var(--sun)] px-4 text-black hover:bg-white md:inline-flex"
           >
             Book a visit
           </Button>
@@ -101,6 +107,7 @@ export function SiteHeader() {
               </DialogHeader>
               <p className="text-xs font-semibold tracking-[0.16em] text-muted-foreground uppercase">Around the clinic</p>
               <NavLinks
+                light
                 className="flex flex-col gap-3 text-lg"
                 onNavigate={() => setMenuOpen(false)}
               />

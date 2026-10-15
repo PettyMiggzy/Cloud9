@@ -3,7 +3,7 @@ import { clinic, nav, patientTools } from "@/lib/content"
 
 export function SiteFooter() {
   return (
-    <footer className="bg-deep pb-24 text-white md:pb-0">
+    <footer className="border-t-8 border-[var(--sun)] bg-deep pb-24 text-white md:pb-0">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2 lg:col-span-1">
           <p className="font-heading text-2xl">Cloud 9</p>

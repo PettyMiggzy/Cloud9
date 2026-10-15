@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Bricolage_Grotesque, Outfit } from "next/font/google"
+import { Outfit, Syne } from "next/font/google"
 import { MobileDock } from "@/components/mobile-dock"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
@@ -11,7 +11,7 @@ const outfit = Outfit({
   variable: "--font-outfit",
 })
 
-const display = Bricolage_Grotesque({
+const display = Syne({
   subsets: ["latin"],
   variable: "--font-display",
 })

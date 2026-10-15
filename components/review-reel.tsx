@@ -38,7 +38,7 @@ export function ReviewReel() {
       <div className="grid gap-8 p-6 sm:p-10 lg:grid-cols-[1fr_16rem]">
         <blockquote>
           <p className="text-xs tracking-[0.18em] text-[var(--sun)] uppercase">Google review</p>
-          <p key={review.url} className="stage-photo mt-4 font-heading text-2xl leading-snug text-white sm:text-4xl">
+          <p key={review.url} className="stage-photo mt-4 font-heading text-3xl leading-[1.05] text-white sm:text-5xl">
             “{review.text}”
           </p>
           <a href={review.url} className="mt-6 inline-block text-sm font-medium text-[var(--sun)] hover:underline">
