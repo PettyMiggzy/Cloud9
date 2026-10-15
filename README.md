@@ -2,7 +2,7 @@
 
 A redesigned site for [Cloud 9 Physical Therapy](https://cloud9physicaltherapy.com/), the one-to-one clinic at 5370 E. Thompson Rd, Suite G, Indianapolis.
 
-Photographs come from the current site: the clinic, the real team, and one treatment photo of Dr. Skye with a patient. Stock and generated pictures of other people are not used. Hours, fees, services, and patient reviews are the clinic’s as well.
+Photographs come from the current site: the clinic, the real team, and one treatment photo of Dr. Skye with a patient. Stock and generated pictures of other people are not used. Seven service pages use object-only illustrations made for this site (no people, alt text says so) instead of repeating the same clinic photos. Hours, fees, services, and patient reviews are the clinic’s as well.
 
 Appointment requests, insurance checks, and physician referrals open an email to contact@cloud9pt.com. They are not confirmed until the clinic replies.
 
